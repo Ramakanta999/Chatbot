@@ -1,0 +1,82 @@
+package ChatBot.service;
+
+import ChatBot.model.DataBase;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.File;
+import java.io.IOException;
+
+/*................................................................................................................................
+ . Copyright (c)
+ .
+ . The Const	 Class was Coded by : Alexandre BOLOT
+ .
+ . Last Modified : 30/04/17 12:48
+ .
+ . Contact : bolotalex06@gmail.com
+ ...............................................................................................................................*/
+
+/**
+ This class is used as a centralised holder of all the String variables that are used it this project.<br>
+ This way, we can easily change the value over all the project, and also find quickly any usage of it.
+ <br><br>
+ This class also holds the 4 methods used for reading and writting in the .json save files.<br>
+ This way, they can be accessed and used from anywher in the project.
+ */
+@SuppressWarnings({"WeakerAccess", "unchecked"})
+public class Const
+{
+    //region --> Specifications for accessing the .json serialized files
+    public static final String SERIALIZATION_PATH = "./src/main/resources/serialization/";
+    public static final String DB_PATH            = "db.json";
+    //endregion
+    
+    /**
+     This method will Serialize [db] at SERIALIZATION_PATH + DB_PATH <br>
+     Warning : it will overwrite over what was previously written in the file.
+     
+     @param db The DataBase to serialize.
+     */
+    public static void writeDb (DataBase db)
+    {
+        try
+        {
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.writeValue(new File(SERIALIZATION_PATH + DB_PATH), db);
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+    
+    /**
+     This method will Deserialize [players] at SERIALIZATION_PATH + PLAYERS_PATH.<br>
+     
+     @return The list of Players that was deserialized.
+     */
+    public static DataBase readDb ()
+    {
+        DataBase db = new DataBase();
+        try
+        {
+            ObjectMapper mapper = new ObjectMapper();
+            File file = new File(SERIALIZATION_PATH + DB_PATH);
+            if(file.exists() && !file.isDirectory())
+            {
+                db = mapper.readValue(file, DataBase.class);
+            }
+            else
+            {
+                db = new DataBase();
+                writeDb(db);
+            }
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        
+        return db;
+    }
+}

@@ -1,8 +1,11 @@
 package ChatBot.model;
 
+import ChatBot.service.Const;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
 import java.util.Random;
 
 /*................................................................................................................................
@@ -10,7 +13,7 @@ import java.util.Random;
  .
  . The Bot	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 30/04/17 11:38
+ . Last Modified : 30/04/17 15:04
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -22,14 +25,6 @@ public class Bot extends JFrame
     
     //TextArea chatArea
     private JTextArea txtChat = new JTextArea();
-    
-    private String[][] db = new String[][]{
-            //Greetings
-            {"hi", "hello", "bonjour", "salut"}, {"hey", "Hi !", "yo", "ouech"},
-            //How are you
-            {"how are you", "comment ça va", "comment tu va", "how r u"}, {"I'm good", "doing good", "ça va bien", "bien bien"},
-            //Default
-            {"I don't understand", "je ne comprends pas"}};
     
     public Bot ()
     {
@@ -78,40 +73,18 @@ public class Bot extends JFrame
         }
         
         //Searching for match
-        
-        // 0: Still searching
-        // 1: Nothing was found
-        // 2: Result was found
-        boolean foundAnAnswer = false;
-        int j = 0;
-        while (!foundAnAnswer)
-        {
-            if(isInArray(input, db[j * 2]))
-            {
-                foundAnAnswer = true;
-                int rand = new Random().nextInt(db[(j * 2) + 1].length);
-                displayText("Bot", db[(j * 2) + 1][rand]);
-            }
-            j++;
-            
-            if(j * 2 >= db.length - 1 && !foundAnAnswer)
-            {
-                foundAnAnswer = true;
-                int rand = new Random().nextInt(db[db.length - 1].length);
-                displayText("Bot", db[db.length - 1][rand]);
-            }
-        }
-    }
+        int phraseKey = -1;
     
-    private boolean isInArray (String toFind, String[] toSearchIn)
-    {
-        boolean found = false;
-        
-        for (String string : toSearchIn)
+        for (int key : getPhrases().keySet())
         {
-            if(string.equalsIgnoreCase(toFind)) found = true;
+            if(getPhrases().get(key).equalsIgnoreCase(input)) phraseKey = key;
         }
-        return found;
+    
+        if(getLinks().containsKey(phraseKey))
+        {
+            int returnPhrase = getLinks().get(phraseKey)[new Random().nextInt(getLinks().get(phraseKey).length)];
+            System.out.println(getPhrases().get(returnPhrase));
+        }
     }
     
     private void displayText (String user, String message)
@@ -119,4 +92,18 @@ public class Bot extends JFrame
         txtChat.append(user + " : " + message + "\n");
     }
     
+    private DataBase getDb ()
+    {
+        return Const.readDb();
+    }
+    
+    private HashMap<Integer, String> getPhrases ()
+    {
+        return getDb().getPhrases();
+    }
+    
+    private HashMap<Integer, Integer[]> getLinks ()
+    {
+        return getDb().getLinks();
+    }
 }

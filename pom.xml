@@ -3,7 +3,7 @@
   .
   . The pom.xml	 Class was Coded by : Alexandre BOLOT
   .
-  . Last Modified : 29/04/17 18:23
+  . Last Modified : 30/04/17 11:46
   .
   . Contact : bolotalex06@gmail.com
   .............................................................................................................................-->
@@ -42,6 +42,11 @@
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.8.4</version>
 		</dependency>
 	</dependencies>
 </project>
