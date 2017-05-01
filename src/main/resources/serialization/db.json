@@ -1,33 +1,55 @@
 {
   "pools": {
+    "-2": [
+      "..."
+    ],
     "-1": [
       "je ne comprends pas..."
     ],
     "1": [
       "bonjour",
+      "bonjour",
       "salut",
-      "bjr",
-      "slt",
-      "hey",
-      "coucou"
+      "hey"
     ],
     "2": [
       "comment ça va ?",
       "ça va ?",
       "comment tu vas ?",
       "ça va bien ?"
+    ],
+    "3": [
+      "ça va bien et toi ?",
+      "bien merci et toi ?",
+      "je vais très bien et toi ?",
+      "je vais bien et toi ?"
+    ],
+    "4": [
+      "ça va bien",
+      "bien merci",
+      "je vais très bien",
+      "je vais bien"
     ]
   },
   "links": {
+    "-2": [
+      -2
+    ],
     "-1": [
       -1
     ],
     "1": [
-      1,
-      2
+      1
     ],
     "2": [
-      2
+      3,
+      4
+    ],
+    "3": [
+      4
+    ],
+    "4": [
+      -2
     ]
   }
 }
