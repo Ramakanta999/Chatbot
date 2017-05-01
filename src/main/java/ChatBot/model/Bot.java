@@ -1,11 +1,10 @@
 package ChatBot.model;
 
 import ChatBot.service.Const;
+import javafx.fxml.FXML;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.HashMap;
 import java.util.Random;
 
 /*................................................................................................................................
@@ -13,58 +12,30 @@ import java.util.Random;
  .
  . The Bot	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 01/05/17 09:51
+ . Last Modified : 01/05/17 15:26
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
 
-public class Bot extends JFrame
+public class Bot extends DataBase
 {
-    //TextField typing
-    private JTextField txtEnter = new JTextField();
+    public TextField txtInput;
+    public TextArea  txtChat;
     
-    //TextArea chatArea
-    private JTextArea txtChat = new JTextArea();
-    
-    public Bot ()
+    @FXML
+    public void initialize ()
     {
-        //Creating Frame
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setSize(600, 600);
-        setResizable(false);
-        setTitle("JavaBot");
-        setLayout(null);
-        
-        //Creating txtEnter for typing
-        txtEnter.setLocation(5, 540);
-        txtEnter.setSize(590, 30);
-        
-        txtEnter.addActionListener(new ActionListener()
-        {
-            @Override
-            public void actionPerformed (ActionEvent e)
-            {
-                handleAnswers();
-            }
-        });
-        
-        //Creating txtChat for the chat
-        txtChat.setLocation(5, 5);
-        txtChat.setSize(590, 530);
-        txtChat.setEditable(false);
-        
-        //Adding to Frame
-        add(txtEnter);
-        add(txtChat);
-        setVisible(true);
+        updateFromFile();
     }
     
-    private void handleAnswers ()
+    public void txtInput_onAction ()
     {
+        updateFromFile();
+        
         //Get input value
-        String input = txtEnter.getText().trim();
+        String input = txtInput.getText().trim();
         displayText("You", input);
-        txtEnter.setText("");
+        txtInput.setText("");
         
         //Removing punctuation (for now)
         while (input.matches("^.*[.,;?! ]$"))
@@ -73,37 +44,25 @@ public class Bot extends JFrame
         }
         
         //Searching for match
-        int phraseKey = -1;
+        int inputPoolIndex = findPhrase(input);
+        int randLinkIndex = new Random().nextInt(getLink(inputPoolIndex).length);
+        int outputPoolIndex = getLink(inputPoolIndex)[randLinkIndex];
     
-        for (int key : getPhrases().keySet())
-        {
-            if(getPhrases().get(key).equalsIgnoreCase(input)) phraseKey = key;
-        }
+        int randPhraseIndex = new Random().nextInt(getPool(outputPoolIndex).length);
+        String output = getPhrase(outputPoolIndex, randPhraseIndex);
     
-        if(getLinks().containsKey(phraseKey))
-        {
-            int returnPhrase = getLinks().get(phraseKey)[new Random().nextInt(getLinks().get(phraseKey).length)];
-            displayText("Bot", getPhrases().get(returnPhrase));
-        }
+        displayText("Bot", output);
     }
     
     private void displayText (String user, String message)
     {
-        txtChat.append(user + " : " + message + "\n");
+        txtChat.setText(txtChat.getText() + user + " : " + message + "\n");
     }
     
-    private DataBase getDb ()
+    private void updateFromFile ()
     {
-        return Const.readDb();
-    }
-    
-    private HashMap<Integer, String> getPhrases ()
-    {
-        return getDb().getPhrases();
-    }
-    
-    private HashMap<Integer, Integer[]> getLinks ()
-    {
-        return getDb().getLinks();
+        DataBase db = Const.readDb();
+        setLinks(db.getLinks());
+        setPools(db.getPools());
     }
 }
