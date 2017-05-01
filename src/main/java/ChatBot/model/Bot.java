@@ -12,7 +12,7 @@ import java.util.Random;
  .
  . The Bot	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 01/05/17 16:08
+ . Last Modified : 01/05/17 18:50
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -39,7 +39,7 @@ public class Bot
         txtInput.setText("");
         
         //Removing punctuation (for now)
-        while (input.matches("^.*[.,;?! ]$"))
+        while (input.matches("^.*[.,;! ]$"))
         {
             input = input.substring(0, input.length() - 1);
         }
