@@ -13,7 +13,7 @@ import java.util.Random;
  .
  . The Bot	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 30/04/17 15:04
+ . Last Modified : 01/05/17 09:51
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -83,7 +83,7 @@ public class Bot extends JFrame
         if(getLinks().containsKey(phraseKey))
         {
             int returnPhrase = getLinks().get(phraseKey)[new Random().nextInt(getLinks().get(phraseKey).length)];
-            System.out.println(getPhrases().get(returnPhrase));
+            displayText("Bot", getPhrases().get(returnPhrase));
         }
     }
     
