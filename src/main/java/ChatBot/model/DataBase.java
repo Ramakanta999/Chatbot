@@ -7,7 +7,7 @@ import java.util.HashMap;
  .
  . The DataBase	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 01/05/17 14:07
+ . Last Modified : 01/05/17 15:50
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -22,18 +22,6 @@ public class DataBase
     {
         this.pools = new HashMap<>();
         this.links = new HashMap<>();
-    }
-    
-    public DataBase (HashMap<Integer, String[]> pools, HashMap<Integer, Integer[]> links)
-    {
-        this.pools = pools;
-        this.links = links;
-    }
-    
-    public DataBase (DataBase db)
-    {
-        this.pools = db.getPools();
-        this.links = db.getLinks();
     }
     
     //Getters =======================================================
