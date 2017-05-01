@@ -12,15 +12,16 @@ import java.util.Random;
  .
  . The Bot	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 01/05/17 15:26
+ . Last Modified : 01/05/17 16:08
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
 
-public class Bot extends DataBase
+public class Bot
 {
-    public TextField txtInput;
-    public TextArea  txtChat;
+    public  TextField txtInput;
+    public  TextArea  txtChat;
+    private DataBase  db;
     
     @FXML
     public void initialize ()
@@ -44,13 +45,13 @@ public class Bot extends DataBase
         }
         
         //Searching for match
-        int inputPoolIndex = findPhrase(input);
-        int randLinkIndex = new Random().nextInt(getLink(inputPoolIndex).length);
-        int outputPoolIndex = getLink(inputPoolIndex)[randLinkIndex];
+        int inputPoolIndex = db.findPhrase(input);
+        int randLinkIndex = new Random().nextInt(db.getLink(inputPoolIndex).length);
+        int outputPoolIndex = db.getLink(inputPoolIndex)[randLinkIndex];
     
-        int randPhraseIndex = new Random().nextInt(getPool(outputPoolIndex).length);
-        String output = getPhrase(outputPoolIndex, randPhraseIndex);
-    
+        int randPhraseIndex = new Random().nextInt(db.getPool(outputPoolIndex).length);
+        String output = db.getPhrase(outputPoolIndex, randPhraseIndex);
+        
         displayText("Bot", output);
     }
     
@@ -61,8 +62,6 @@ public class Bot extends DataBase
     
     private void updateFromFile ()
     {
-        DataBase db = Const.readDb();
-        setLinks(db.getLinks());
-        setPools(db.getPools());
+        db = Const.readDb();
     }
 }
