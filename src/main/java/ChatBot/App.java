@@ -1,17 +1,13 @@
 package ChatBot;
 
-import ChatBot.model.DataBase;
-import ChatBot.service.Const;
-
-import java.util.Random;
-import java.util.Scanner;
+import ChatBot.model.Bot;
 
 /*................................................................................................................................
  . Copyright (c)
  .
  . The App	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 30/04/17 15:04
+ . Last Modified : 01/05/17 09:51
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -19,7 +15,7 @@ import java.util.Scanner;
 public class App
 {
     public static void main (String[] args)
-    {
+    {/*
         DataBase db = Const.readDb();
     
         Scanner scanner = new Scanner(System.in);
@@ -42,6 +38,8 @@ public class App
             }
         
             input = scanner.nextLine().trim();
-        }
+        }*/
+    
+        new Bot();
     }
 }
