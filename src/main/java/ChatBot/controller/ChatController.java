@@ -5,12 +5,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+import java.util.Random;
+
 /*................................................................................................................................
  . Copyright (c)
  .
  . The ChatController	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 02/05/17 20:03
+ . Last Modified : 03/05/17 00:39
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -25,6 +27,13 @@ public class ChatController
     public void initialize ()
     {
         bot = new Bot();
+    
+        int flipCoin = new Random().nextInt(100);
+        if(flipCoin < 50)
+        {
+            displayText("ChatBot", bot.getQuestion(1));
+            displayText("ChatBot", bot.getQuestion(2));
+        }
     }
     
     public void txtInput_onAction ()
