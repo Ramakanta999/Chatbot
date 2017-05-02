@@ -1,14 +1,24 @@
 {
   "pools": {
     "-2": [
-      "..."
+      "comment ça va ?",
+      "ça va ?",
+      "comment tu vas ?",
+      "ça va bien ?"
     ],
     "-1": [
-      "je ne comprends pas..."
+      "bonjour",
+      "coucou",
+      "salut",
+      "bonjour, maître"
+    ],
+    "0": [
+      "je ne comprends pas...",
+      "..."
     ],
     "1": [
       "bonjour",
-      "bonjour",
+      "coucou",
       "salut",
       "hey"
     ],
@@ -32,24 +42,8 @@
     ]
   },
   "links": {
-    "-2": [
-      -2
-    ],
-    "-1": [
-      -1
-    ],
     "1": [
-      1
-    ],
-    "2": [
-      3,
-      4
-    ],
-    "3": [
-      4
-    ],
-    "4": [
-      -2
+      -1
     ]
   }
 }
