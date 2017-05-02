@@ -7,7 +7,7 @@ import java.util.HashMap;
  .
  . The DataBase	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 01/05/17 18:49
+ . Last Modified : 02/05/17 20:08
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -30,7 +30,7 @@ public class DataBase
         return pools;
     }
     
-    protected void setPools (HashMap<Integer, String[]> newPools)
+    public void setPools (HashMap<Integer, String[]> newPools)
     {
         this.pools = newPools;
     }
@@ -57,7 +57,7 @@ public class DataBase
     
     public Integer[] getLink (int index)
     {
-        return getLinks().getOrDefault(index, new Integer[]{-1});
+        return getLinks().getOrDefault(index, new Integer[]{0});
     }
     
     //Utils =========================================================
@@ -70,8 +70,9 @@ public class DataBase
                 if(phraseToFind.equalsIgnoreCase(phraseToCompare)) return index;
             }
         }
-        
-        return -1;
+    
+        //0 is the poolIndex of the not understanding phrases
+        return 0;
     }
     
     //Override methods ==============================================
