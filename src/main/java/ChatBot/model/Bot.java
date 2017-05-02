@@ -1,9 +1,6 @@
 package ChatBot.model;
 
 import ChatBot.service.Const;
-import javafx.fxml.FXML;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 
 import java.util.Random;
 
@@ -12,56 +9,54 @@ import java.util.Random;
  .
  . The Bot	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 01/05/17 18:50
+ . Last Modified : 02/05/17 20:10
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
 
 public class Bot
 {
-    public  TextField txtInput;
-    public  TextArea  txtChat;
-    private DataBase  db;
+    private DataBase db;
     
-    @FXML
-    public void initialize ()
+    public Bot ()
     {
-        updateFromFile();
+        db = Const.readDb();
     }
     
-    public void txtInput_onAction ()
+    public String getAnswer (String input)
     {
-        updateFromFile();
-        
-        //Get input value
-        String input = txtInput.getText().trim();
-        displayText("You", input);
-        txtInput.setText("");
+        db = Const.readDb();
         
         //Removing punctuation (for now)
         while (input.matches("^.*[.,;! ]$"))
         {
             input = input.substring(0, input.length() - 1);
         }
-        
-        //Searching for match
-        int inputPoolIndex = db.findPhrase(input);
-        int randLinkIndex = new Random().nextInt(db.getLink(inputPoolIndex).length);
-        int outputPoolIndex = db.getLink(inputPoolIndex)[randLinkIndex];
     
-        int randPhraseIndex = new Random().nextInt(db.getPool(outputPoolIndex).length);
-        String output = db.getPhrase(outputPoolIndex, randPhraseIndex);
+        //Needed to get in the While at first try
+        String outputPhrase = input;
+    
+        //We do not want to repeat the input phrase
+        while (outputPhrase.equalsIgnoreCase(input))
+        {
+            //Searching for match
+            int inputPoolIndex = db.findPhrase(input);
+            int randLinkIndex = new Random().nextInt(db.getLink(inputPoolIndex).length);
         
-        displayText("Bot", output);
+            //Selecting answer
+            int outputPoolIndex = db.getLink(inputPoolIndex)[randLinkIndex];
+            int randPhraseIndex = new Random().nextInt(db.getPool(outputPoolIndex).length);
+        
+            outputPhrase = db.getPhrase(outputPoolIndex, randPhraseIndex);
+        }
+    
+        return outputPhrase;
     }
     
-    private void displayText (String user, String message)
+    public String getQuestion ()
     {
-        txtChat.setText(txtChat.getText() + user + " : " + message + "\n");
-    }
-    
-    private void updateFromFile ()
-    {
-        db = Const.readDb();
+        
+        
+        return "";
     }
 }
