@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.*?>
 <!--..............................................................................................................................
   . Copyright (c)
   .
   . The ChatView.fxml	 Class was Coded by : Alexandre BOLOT
   .
-  . Last Modified : 01/05/17 15:25
+  . Last Modified : 02/05/17 20:08
   .
   . Contact : bolotalex06@gmail.com
   .............................................................................................................................-->
 
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.*?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0"
-			xmlns="http://javafx.com/javafx/8.0.111" fx:controller="ChatBot.model.Bot">
+			xmlns="http://javafx.com/javafx/8.0.111" fx:controller="ChatBot.controller.ChatController">
 	<children>
 		<TextField fx:id="txtInput" layoutX="14.0" layoutY="359.0" onAction="#txtInput_onAction" prefHeight="30.0" prefWidth="374.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0"
 				   AnchorPane.rightAnchor="15.0"/>
