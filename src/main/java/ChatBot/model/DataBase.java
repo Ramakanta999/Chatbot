@@ -1,13 +1,14 @@
 package ChatBot.model;
 
 import java.util.HashMap;
+import java.util.Random;
 
 /*................................................................................................................................
  . Copyright (c)
  .
  . The DataBase	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 02/05/17 20:08
+ . Last Modified : 03/05/17 00:39
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -65,14 +66,45 @@ public class DataBase
     {
         for (int index : pools.keySet())
         {
-            for (String phraseToCompare : pools.get(index))
+            if(index > 0)
             {
-                if(phraseToFind.equalsIgnoreCase(phraseToCompare)) return index;
+                for (String phraseToCompare : pools.get(index))
+                {
+                    if(phraseToFind.equalsIgnoreCase(phraseToCompare)) return index;
+                }
             }
         }
-    
+        
         //0 is the poolIndex of the not understanding phrases
         return 0;
+    }
+    
+    public String getQuestion ()
+    {
+        int index = 0;
+        int indexRange = 0;
+        
+        //region --> Getting Amount of keys that are < 0
+        for (int i : pools.keySet())
+        {
+            if(i < 0) indexRange++;
+        }
+        //endregion
+        //region --> Getting rand index in the pools list (only if < 0)
+        while (index >= 0)
+        {
+            index = -(new Random().nextInt(indexRange));
+        }
+        //endregion
+        
+        return getQuestion(index);
+    }
+    
+    public String getQuestion (int poolIndex)
+    {
+        int poolSize = getPool(poolIndex).length;
+        
+        return getPool(poolIndex)[new Random().nextInt(poolSize)];
     }
     
     //Override methods ==============================================
