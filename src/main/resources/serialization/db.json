@@ -1,5 +1,11 @@
 {
   "pools": {
+    "-3": [
+      "ça va bien",
+      "bien merci",
+      "je vais très bien",
+      "je vais bien"
+    ],
     "-2": [
       "comment ça va ?",
       "ça va ?",
@@ -29,21 +35,31 @@
       "ça va bien ?"
     ],
     "3": [
-      "ça va bien et toi ?",
-      "bien merci et toi ?",
-      "je vais très bien et toi ?",
-      "je vais bien et toi ?"
-    ],
-    "4": [
       "ça va bien",
       "bien merci",
       "je vais très bien",
       "je vais bien"
+    ],
+    "4": [
+      "ça va bien et toi ?",
+      "bien merci et toi ?",
+      "je vais très bien et toi ?",
+      "je vais bien et toi ?"
     ]
   },
   "links": {
     "1": [
-      -1
+      -1,
+      -2
+    ],
+    "2": [
+      -3
+    ],
+    "3": [
+      0
+    ],
+    "4": [
+      -3
     ]
   }
 }
