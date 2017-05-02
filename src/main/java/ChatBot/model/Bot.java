@@ -9,7 +9,7 @@ import java.util.Random;
  .
  . The Bot	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 02/05/17 20:10
+ . Last Modified : 02/05/17 23:02
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -55,8 +55,11 @@ public class Bot
     
     public String getQuestion ()
     {
-        
-        
-        return "";
+        return db.getQuestion();
+    }
+    
+    public String getQuestion (int poolIndex)
+    {
+        return db.getQuestion(poolIndex);
     }
 }
