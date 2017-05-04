@@ -1,10 +1,13 @@
 {
   "pools": {
-    "-3": [
+    "-4": [
       "ça va bien",
       "bien merci",
       "je vais très bien",
       "je vais bien"
+    ],
+    "-3": [
+      "ok cool !"
     ],
     "-2": [
       "comment ça va ?",
@@ -38,9 +41,17 @@
       "[je vais] [assez] [plutôt] [très] mal [merci]"
     ],
     "4": [
+      "oui [merci] et toi ?",
+      "non [merci] et toi ?",
       "ça va [bien] [merci] et toi ?",
       "[je vais] [assez] [plutôt] [très] bien [merci] et toi ?",
       "[je vais] [assez] [plutôt] [très] mal [merci] et toi ?"
+    ],
+    "999": [
+      "au revoir",
+      "à [plus] [tard] [bientôt] [dieu]",
+      "ciao",
+      "stop"
     ]
   },
   "links": {
