@@ -13,7 +13,7 @@ import javafx.stage.Stage;
  .
  . The App	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 04/05/17 21:48
+ . Last Modified : 04/05/17 22:52
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -37,7 +37,6 @@ public class App extends Application
         primaryStage.setResizable(false);
         primaryStage.setX((screen.getWidth() - 400) / 2);
         primaryStage.setY((screen.getHeight() - 400) / 2);
-        primaryStage.show();
     
         Stage stage2 = new Stage();
         Parent root2 = FXMLLoader.load(getClass().getClassLoader().getResource("LearningView.fxml"));
@@ -46,6 +45,8 @@ public class App extends Application
         stage2.setResizable(false);
         stage2.setX(primaryStage.getX() + 400);
         stage2.setY(primaryStage.getY());
+    
         stage2.show();
+        primaryStage.show();
     }
 }
