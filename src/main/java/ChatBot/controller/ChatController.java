@@ -12,7 +12,7 @@ import java.util.Random;
  .
  . The ChatController	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 03/05/17 00:39
+ . Last Modified : 04/05/17 18:55
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -41,8 +41,8 @@ public class ChatController
         String input = txtInput.getText();
         displayText("Alex", input);
         txtInput.setText("");
-        
-        String output = bot.getAnswer(input);
+    
+        String output = bot.getAnswer(input.replaceAll(" ", ""));
         displayText("ChatBot", output);
     }
     
