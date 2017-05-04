@@ -35,13 +35,15 @@
       "ça va bien ?"
     ],
     "3": [
-      "ça va bien",
-      "bien merci",
-      "je vais très bien",
-      "je vais bien"
+      "ça va [bien] [merci]",
+      "bien [merci]",
+      "je vais [assez] [plutôt] [très] bien",
+      "je vais [assez] [plutôt] [très] mal"
     ],
     "4": [
       "ça va bien et toi ?",
+      "ça va et toi ?",
+      "bien et toi ?",
       "bien merci et toi ?",
       "je vais très bien et toi ?",
       "je vais bien et toi ?"
@@ -56,7 +58,7 @@
       -3
     ],
     "3": [
-      0
+      1
     ],
     "4": [
       -3
