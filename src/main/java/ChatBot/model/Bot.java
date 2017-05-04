@@ -9,7 +9,7 @@ import java.util.Random;
  .
  . The Bot	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 02/05/17 23:02
+ . Last Modified : 04/05/17 18:54
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -42,11 +42,11 @@ public class Bot
             //Searching for match
             int inputPoolIndex = db.findPhrase(input);
             int randLinkIndex = new Random().nextInt(db.getLink(inputPoolIndex).length);
-        
+    
             //Selecting answer
             int outputPoolIndex = db.getLink(inputPoolIndex)[randLinkIndex];
             int randPhraseIndex = new Random().nextInt(db.getPool(outputPoolIndex).length);
-        
+    
             outputPhrase = db.getPhrase(outputPoolIndex, randPhraseIndex);
         }
     
@@ -55,11 +55,13 @@ public class Bot
     
     public String getQuestion ()
     {
+        db = Const.readDb();
         return db.getQuestion();
     }
     
     public String getQuestion (int poolIndex)
     {
+        db = Const.readDb();
         return db.getQuestion(poolIndex);
     }
 }
