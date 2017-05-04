@@ -8,11 +8,12 @@ import java.util.Random;
  .
  . The DataBase	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 04/05/17 18:56
+ . Last Modified : 04/05/17 22:56
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
 
+@SuppressWarnings("WeakerAccess")
 public class DataBase
 {
     private HashMap<Integer, String[]>  pools = new HashMap<>();
@@ -21,8 +22,8 @@ public class DataBase
     //Constructors ==================================================
     public DataBase ()
     {
-        setPools(new HashMap<Integer, String[]>());
-        setLinks(new HashMap<Integer, Integer[]>());
+        setPools(new HashMap<>());
+        setLinks(new HashMap<>());
     }
     
     //Getters =======================================================
@@ -70,24 +71,27 @@ public class DataBase
             {
                 for (String toCompare : pools.get(index))
                 {
+                    String tmpToFind = toFind;
                     toCompare = toCompare.replaceAll(" ", "");
-    
+                    
                     //region --> Case where there is instant match
-                    if(toFind.equalsIgnoreCase(toCompare))
+                    if(tmpToFind.equalsIgnoreCase(toCompare))
                     {
                         return index;
                     }
                     //endregion
-    
+                    
                     //region --> Case where there are multiple combinations
                     String[] strings = toCompare.split("[\\[\\]]");
-    
-                    for (int i = 0; i < strings.length; i++)
+                    
+                    tmpToFind = tmpToFind.replace("\\?", "\\?");
+                    
+                    for (String string : strings)
                     {
-                        toFind = toFind.replace(strings[i], "");
+                        tmpToFind = tmpToFind.replace(string, "");
                     }
-    
-                    if(toFind.isEmpty()) return index;
+                    
+                    if(tmpToFind.isEmpty()) return index;
                     //endregion
                 }
             }
