@@ -9,7 +9,7 @@ import java.util.Random;
  .
  . The Bot	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 04/05/17 18:54
+ . Last Modified : 04/05/17 22:55
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -36,6 +36,10 @@ public class Bot
         //Needed to get in the While at first try
         String outputPhrase = input;
     
+        //region --> Case order to stop
+        if(db.findPhrase(input) == 999) System.exit(0);
+        //endregion
+        
         //We do not want to repeat the input phrase
         while (outputPhrase.equalsIgnoreCase(input))
         {
