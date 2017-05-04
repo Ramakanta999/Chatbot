@@ -29,24 +29,18 @@
       "hey"
     ],
     "2": [
-      "comment ça va ?",
-      "ça va ?",
-      "comment tu vas ?",
-      "ça va bien ?"
+      "[comment] ça va [bien] ?",
+      "comment tu vas ?"
     ],
     "3": [
       "ça va [bien] [merci]",
-      "bien [merci]",
-      "je vais [assez] [plutôt] [très] bien",
-      "je vais [assez] [plutôt] [très] mal"
+      "[je vais] [assez] [plutôt] [très] bien [merci]",
+      "[je vais] [assez] [plutôt] [très] mal [merci]"
     ],
     "4": [
-      "ça va bien et toi ?",
-      "ça va et toi ?",
-      "bien et toi ?",
-      "bien merci et toi ?",
-      "je vais très bien et toi ?",
-      "je vais bien et toi ?"
+      "ça va [bien] [merci] et toi ?",
+      "[je vais] [assez] [plutôt] [très] bien [merci] et toi ?",
+      "[je vais] [assez] [plutôt] [très] mal [merci] et toi ?"
     ]
   },
   "links": {
