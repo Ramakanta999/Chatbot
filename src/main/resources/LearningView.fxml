@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<!--..............................................................................................................................
+  . Copyright (c)
+  .
+  . The LearningView.fxml	 Class was Coded by : Alexandre BOLOT
+  .
+  . Last Modified : 04/05/17 18:59
+  .
+  . Contact : bolotalex06@gmail.com
+  .............................................................................................................................-->
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0"
+			xmlns="http://javafx.com/javafx/8.0.111" fx:controller="ChatBot.controller.LearningController">
+	<children>
+		<TextField fx:id="txtTrigger" layoutX="25.0" layoutY="83.0" prefWidth="250.0"/>
+		<TextField fx:id="txtAnswer" layoutX="25.0" layoutY="140.0" prefWidth="250.0"/>
+		<Label layoutX="63.0" layoutY="28.0" text="Adding new Phrases">
+			<font>
+				<Font size="18.0"/>
+			</font>
+		</Label>
+		<Label layoutX="26.0" layoutY="66.0" text="Trigger"/>
+		<Label layoutX="26.0" layoutY="123.0" text="Answer"/>
+	</children>
+</AnchorPane>
