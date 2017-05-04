@@ -8,7 +8,7 @@ import java.util.Random;
  .
  . The DataBase	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 03/05/17 00:39
+ . Last Modified : 04/05/17 18:56
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -62,15 +62,33 @@ public class DataBase
     }
     
     //Utils =========================================================
-    public int findPhrase (String phraseToFind)
+    public int findPhrase (String toFind)
     {
         for (int index : pools.keySet())
         {
             if(index > 0)
             {
-                for (String phraseToCompare : pools.get(index))
+                for (String toCompare : pools.get(index))
                 {
-                    if(phraseToFind.equalsIgnoreCase(phraseToCompare)) return index;
+                    toCompare = toCompare.replaceAll(" ", "");
+    
+                    //region --> Case where there is instant match
+                    if(toFind.equalsIgnoreCase(toCompare))
+                    {
+                        return index;
+                    }
+                    //endregion
+    
+                    //region --> Case where there are multiple combinations
+                    String[] strings = toCompare.split("[\\[\\]]");
+    
+                    for (int i = 0; i < strings.length; i++)
+                    {
+                        toFind = toFind.replace(strings[i], "");
+                    }
+    
+                    if(toFind.isEmpty()) return index;
+                    //endregion
                 }
             }
         }
