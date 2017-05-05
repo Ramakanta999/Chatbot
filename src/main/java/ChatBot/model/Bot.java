@@ -1,6 +1,7 @@
 package ChatBot.model;
 
 import ChatBot.service.Const;
+import ChatBot.service.Const.ReplacementCode;
 
 import java.util.Random;
 
@@ -11,7 +12,7 @@ import static ChatBot.service.Const.EXIT_INDEX;
  .
  . The Bot	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 05/05/17 23:44
+ . Last Modified : 06/05/17 00:19
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -56,12 +57,25 @@ public class Bot
             outputPhrase = db.getBotPhrase(outputPoolIndex, randPhraseIndex);
         }
     
-        return outputPhrase;
+        return replaceCode(outputPhrase);
     }
     
     public String getBotPhrase (int poolIndex)
     {
         db = Const.readDb();
-        return db.getBotPhrase(poolIndex);
+    
+        String botPhrase = db.getBotPhrase(poolIndex);
+    
+        return replaceCode(botPhrase);
+    }
+    
+    private String replaceCode (String string)
+    {
+        for (ReplacementCode code : ReplacementCode.values())
+        {
+            if(string.contains(code.toString())) string = string.replace(code.toString(), code.getDate());
+        }
+        
+        return string;
     }
 }
