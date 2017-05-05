@@ -4,12 +4,14 @@ import ChatBot.service.Const;
 
 import java.util.Random;
 
+import static ChatBot.service.Const.EXIT_INDEX;
+
 /*................................................................................................................................
  . Copyright (c)
  .
  . The Bot	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 05/05/17 16:05
+ . Last Modified : 05/05/17 23:44
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -37,7 +39,7 @@ public class Bot
         String outputPhrase = input;
     
         //region --> Case order to stop
-        if(db.findUserPhrase(input) == 999) System.exit(0);
+        if(db.findUserPhrase(input) == EXIT_INDEX) System.exit(0);
         //endregion
         
         //We do not want to repeat the input phrase
