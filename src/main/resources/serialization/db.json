@@ -1,31 +1,4 @@
 {
-  "botPhrasePools": {
-    "0": [
-      "je ne comprends pas...",
-      "..."
-    ],
-    "1": [
-      "bonjour",
-      "coucou",
-      "salut",
-      "bonjour, maître"
-    ],
-    "2": [
-      "comment ça va ?",
-      "ça va ?",
-      "comment tu vas ?",
-      "ça va bien ?"
-    ],
-    "3": [
-      "ok cool !"
-    ],
-    "4": [
-      "ça va bien",
-      "bien merci",
-      "je vais très bien",
-      "je vais bien"
-    ]
-  },
   "userPhrasePools": {
     "0": [
       "bonjour",
@@ -69,6 +42,33 @@
     ],
     "3": [
       4
+    ]
+  },
+  "botPhrasePools": {
+    "0": [
+      "je ne comprends pas...",
+      "..."
+    ],
+    "1": [
+      "bonjour",
+      "coucou",
+      "salut",
+      "bonjour, maître"
+    ],
+    "2": [
+      "comment ça va ?",
+      "ça va ?",
+      "comment tu vas ?",
+      "ça va bien ?"
+    ],
+    "3": [
+      "ok cool !"
+    ],
+    "4": [
+      "ça va bien",
+      "bien merci",
+      "je vais très bien",
+      "je vais bien"
     ]
   }
 }
