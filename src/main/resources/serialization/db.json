@@ -1,5 +1,8 @@
 {
   "userPhrasePools": {
+    "-1": [
+      ""
+    ],
     "0": [
       "bonjour",
       "coucou",
@@ -37,10 +40,14 @@
       "[il est] quelle heure [est-il] ?"
     ],
     "7": [
-      "[on est quel jour [aujourd'hui] ?"
+      "[on est] quel jour [aujourd'hui] ?",
+      "[on est] le combien [aujourd'hui] ?"
     ]
   },
   "links": {
+    "-1": [
+      0
+    ],
     "0": [
       1,
       2
