@@ -1,26 +1,5 @@
 {
-  "pools": {
-    "-4": [
-      "ça va bien",
-      "bien merci",
-      "je vais très bien",
-      "je vais bien"
-    ],
-    "-3": [
-      "ok cool !"
-    ],
-    "-2": [
-      "comment ça va ?",
-      "ça va ?",
-      "comment tu vas ?",
-      "ça va bien ?"
-    ],
-    "-1": [
-      "bonjour",
-      "coucou",
-      "salut",
-      "bonjour, maître"
-    ],
+  "botPhrasePools": {
     "0": [
       "je ne comprends pas...",
       "..."
@@ -29,25 +8,48 @@
       "bonjour",
       "coucou",
       "salut",
-      "hey"
+      "bonjour, maître"
     ],
     "2": [
+      "comment ça va ?",
+      "ça va ?",
+      "comment tu vas ?",
+      "ça va bien ?"
+    ],
+    "3": [
+      "ok cool !"
+    ],
+    "4": [
+      "ça va bien",
+      "bien merci",
+      "je vais très bien",
+      "je vais bien"
+    ]
+  },
+  "userPhrasePools": {
+    "0": [
+      "bonjour",
+      "coucou",
+      "salut",
+      "hey"
+    ],
+    "1": [
       "[comment] ça va [bien] ?",
       "comment tu vas ?"
     ],
-    "3": [
+    "2": [
       "ça va [bien] [merci]",
       "[je vais] [assez] [plutôt] [très] bien [merci]",
       "[je vais] [assez] [plutôt] [très] mal [merci]"
     ],
-    "4": [
+    "3": [
       "oui [merci] et toi ?",
       "non [merci] et toi ?",
       "ça va [bien] [merci] et toi ?",
       "[je vais] [assez] [plutôt] [très] bien [merci] et toi ?",
       "[je vais] [assez] [plutôt] [très] mal [merci] et toi ?"
     ],
-    "999": [
+    "4": [
       "au revoir",
       "à [plus] [tard] [bientôt] [dieu]",
       "ciao",
@@ -55,18 +57,18 @@
     ]
   },
   "links": {
+    "0": [
+      1,
+      2
+    ],
     "1": [
-      -1,
-      -2
+      4
     ],
     "2": [
-      -3
+      3
     ],
     "3": [
-      1
-    ],
-    "4": [
-      -3
+      4
     ]
   }
 }
