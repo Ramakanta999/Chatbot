@@ -27,6 +27,17 @@
       "à [plus] [tard] [bientôt] [dieu]",
       "ciao",
       "stop"
+    ],
+    "5": [
+      "comment tu t'appelles ?",
+      "qui est-tu ?",
+      "quel est ton nom ?"
+    ],
+    "6": [
+      "[il est] quelle heure [est-il] ?"
+    ],
+    "7": [
+      "[on est quel jour [aujourd'hui] ?"
     ]
   },
   "links": {
@@ -42,6 +53,15 @@
     ],
     "3": [
       4
+    ],
+    "5": [
+      5
+    ],
+    "6": [
+      6
+    ],
+    "7": [
+      7
     ]
   },
   "botPhrasePools": {
@@ -62,13 +82,27 @@
       "ça va bien ?"
     ],
     "3": [
-      "ok cool !"
+      "ok cool !",
+      "tant mieux !",
+      "ça fait plaisir à entendre"
     ],
     "4": [
       "ça va bien",
       "bien merci",
       "je vais très bien",
       "je vais bien"
+    ],
+    "5": [
+      "je suis ChatBot",
+      "je m'appelle ChatBot",
+      "mon nom est ChatBot"
+    ],
+    "6": [
+      "il est TIME_HOUR"
+    ],
+    "7": [
+      "on est le TIME_DAY",
+      "on est le TIME_DATE"
     ]
   }
 }
