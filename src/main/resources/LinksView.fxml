@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<!--..............................................................................................................................
+  . Copyright (c)
+  .
+  . The LinksView.fxml	 Class was Coded by : Alexandre BOLOT
+  .
+  . Last Modified : 05/05/17 22:35
+  .
+  . Contact : bolotalex06@gmail.com
+  .............................................................................................................................-->
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="currentPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="460.0"
+			xmlns="http://javafx.com/javafx/8.0.111" fx:controller="ChatBot.controller.LinksController">
+	<children>
+		<ListView fx:id="listViewUserPhrases" layoutX="20.0" layoutY="20.0" prefHeight="300.0" prefWidth="200.0" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="20.0"
+				  AnchorPane.topAnchor="20.0"/>
+		<ListView fx:id="listViewBotPhrases" layoutX="320.0" layoutY="100.0" prefHeight="300.0" prefWidth="200.0" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="240.0"
+				  AnchorPane.topAnchor="20.0"/>
+		<TextField fx:id="txtInput" layoutX="20.0" layoutY="340.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#search_onAction" prefHeight="25.0" prefWidth="200.0"
+				   promptText="PhraseToFind or pool index" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0"/>
+		<Button layoutX="240.0" layoutY="340.0" maxHeight="25.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#search_onAction" prefHeight="25.0" prefWidth="65.0"
+				text="Search" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="240.0"/>
+		<Label fx:id="lblError" alignment="CENTER" layoutX="325.0" layoutY="340.0" prefHeight="25.0" prefWidth="115.0" text="Not found..." textFill="RED" visible="false"/>
+	</children>
+</AnchorPane>
