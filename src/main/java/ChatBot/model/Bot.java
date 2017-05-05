@@ -9,7 +9,7 @@ import java.util.Random;
  .
  . The Bot	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 04/05/17 22:55
+ . Last Modified : 05/05/17 16:05
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -23,7 +23,7 @@ public class Bot
         db = Const.readDb();
     }
     
-    public String getAnswer (String input)
+    public String getBotAnswer (String input)
     {
         db = Const.readDb();
         
@@ -37,35 +37,29 @@ public class Bot
         String outputPhrase = input;
     
         //region --> Case order to stop
-        if(db.findPhrase(input) == 999) System.exit(0);
+        if(db.findUserPhrase(input) == 999) System.exit(0);
         //endregion
         
         //We do not want to repeat the input phrase
         while (outputPhrase.equalsIgnoreCase(input))
         {
             //Searching for match
-            int inputPoolIndex = db.findPhrase(input);
+            int inputPoolIndex = db.findUserPhrase(input);
             int randLinkIndex = new Random().nextInt(db.getLink(inputPoolIndex).length);
     
             //Selecting answer
             int outputPoolIndex = db.getLink(inputPoolIndex)[randLinkIndex];
-            int randPhraseIndex = new Random().nextInt(db.getPool(outputPoolIndex).length);
+            int randPhraseIndex = new Random().nextInt(db.getBotPhrasePool(outputPoolIndex).length);
     
-            outputPhrase = db.getPhrase(outputPoolIndex, randPhraseIndex);
+            outputPhrase = db.getBotPhrase(outputPoolIndex, randPhraseIndex);
         }
     
         return outputPhrase;
     }
     
-    public String getQuestion ()
+    public String getBotPhrase (int poolIndex)
     {
         db = Const.readDb();
-        return db.getQuestion();
-    }
-    
-    public String getQuestion (int poolIndex)
-    {
-        db = Const.readDb();
-        return db.getQuestion(poolIndex);
+        return db.getBotPhrase(poolIndex);
     }
 }
