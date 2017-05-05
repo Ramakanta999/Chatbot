@@ -11,7 +11,7 @@ import java.io.IOException;
  .
  . The Const	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 05/05/17 20:00
+ . Last Modified : 05/05/17 23:44
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -48,6 +48,8 @@ public class Const
     public static final String SERIALIZATION_PATH = "./src/main/resources/serialization/";
     public static final String DB_PATH            = "db.json";
     //endregion
+    
+    public static final int EXIT_INDEX = 4;
     
     /**
      This method will Serialize [db] at SERIALIZATION_PATH + DB_PATH <br>
