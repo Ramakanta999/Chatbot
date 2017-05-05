@@ -8,7 +8,7 @@ import java.util.Random;
  .
  . The DataBase	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 05/05/17 16:05
+ . Last Modified : 05/05/17 23:02
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -40,6 +40,11 @@ public class DataBase
         return botPhreasePools;
     }
     
+    public String[] getUserPhrasePool (int index)
+    {
+        return getUserPhrasePools().get(index);
+    }
+    
     public String[] getBotPhrasePool (int index)
     {
         return getBotPhrasePools().get(index);
@@ -65,38 +70,49 @@ public class DataBase
     {
         for (int index : getUserPhrasePools().keySet())
         {
-            if(index > 0)
+            for (String toCompare : getUserPhrasePool(index))
             {
-                for (String toCompare : getUserPhrasePools().get(index))
+                String tmpToFind = toFind;
+                tmpToFind = tmpToFind.replaceAll(" ", "");
+                toCompare = toCompare.replaceAll(" ", "");
+        
+                //region --> Case where there is instant match
+                if(tmpToFind.equalsIgnoreCase(toCompare))
                 {
-                    String tmpToFind = toFind;
-                    toCompare = toCompare.replaceAll(" ", "");
-                    
-                    //region --> Case where there is instant match
-                    if(tmpToFind.equalsIgnoreCase(toCompare))
-                    {
-                        return index;
-                    }
-                    //endregion
-                    
-                    //region --> Case where there are multiple combinations
-                    String[] strings = toCompare.split("[\\[\\]]");
-                    
-                    tmpToFind = tmpToFind.replace("\\?", "\\?");
-                    
-                    for (String string : strings)
-                    {
-                        tmpToFind = tmpToFind.replace(string, "");
-                    }
-                    
-                    if(tmpToFind.isEmpty()) return index;
-                    //endregion
+                    return index;
                 }
+                //endregion
+        
+                //region --> Case where there are multiple combinations
+                String[] strings = toCompare.split("[\\[\\]]");
+        
+                tmpToFind = tmpToFind.replace("\\?", "\\?");
+        
+                for (String string : strings)
+                {
+                    tmpToFind = tmpToFind.replace(string, "");
+                }
+        
+                if(tmpToFind.isEmpty()) return index;
+                //endregion
             }
         }
         
         //0 is the poolIndex of the not understanding phrases
         return 0;
+    }
+    
+    public int findBotPhrase (String toFind)
+    {
+        for (int index : getBotPhrasePools().keySet())
+        {
+            for (String toCompare : getBotPhrasePool(index))
+            {
+                if(toFind.equalsIgnoreCase(toCompare)) return index;
+            }
+        }
+        
+        return -1;
     }
     
     public String getBotPhrase (int poolIndex)
