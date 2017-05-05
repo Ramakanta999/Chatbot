@@ -8,7 +8,7 @@ import java.util.Random;
  .
  . The DataBase	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 04/05/17 22:56
+ . Last Modified : 05/05/17 16:05
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -16,45 +16,43 @@ import java.util.Random;
 @SuppressWarnings("WeakerAccess")
 public class DataBase
 {
-    private HashMap<Integer, String[]>  pools = new HashMap<>();
-    private HashMap<Integer, Integer[]> links = new HashMap<>();
+    private HashMap<Integer, String[]>  userPhrasePools = new HashMap<>();
+    private HashMap<Integer, String[]>  botPhreasePools = new HashMap<>();
+    private HashMap<Integer, Integer[]> links           = new HashMap<>();
     
     //Constructors ==================================================
     public DataBase ()
     {
-        setPools(new HashMap<>());
-        setLinks(new HashMap<>());
+        userPhrasePools = new HashMap<>();
+        botPhreasePools = new HashMap<>();
+        links = new HashMap<>();
     }
     
-    //Getters =======================================================
-    public HashMap<Integer, String[]> getPools ()
+    //Getters and Setters =======================================================
+    
+    public HashMap<Integer, String[]> getUserPhrasePools ()
     {
-        return pools;
+        return userPhrasePools;
     }
     
-    public void setPools (HashMap<Integer, String[]> newPools)
+    public HashMap<Integer, String[]> getBotPhrasePools ()
     {
-        this.pools = newPools;
+        return botPhreasePools;
     }
     
-    public String[] getPool (int index)
+    public String[] getBotPhrasePool (int index)
     {
-        return getPools().get(index);
+        return getBotPhrasePools().get(index);
     }
     
-    public String getPhrase (int poolIndex, int phraseIndex)
+    public String getBotPhrase (int poolIndex, int phraseIndex)
     {
-        return getPool(poolIndex)[phraseIndex];
+        return getBotPhrasePool(poolIndex)[phraseIndex];
     }
     
     public HashMap<Integer, Integer[]> getLinks ()
     {
         return links;
-    }
-    
-    public void setLinks (HashMap<Integer, Integer[]> newLinks)
-    {
-        this.links = newLinks;
     }
     
     public Integer[] getLink (int index)
@@ -63,13 +61,13 @@ public class DataBase
     }
     
     //Utils =========================================================
-    public int findPhrase (String toFind)
+    public int findUserPhrase (String toFind)
     {
-        for (int index : pools.keySet())
+        for (int index : getUserPhrasePools().keySet())
         {
             if(index > 0)
             {
-                for (String toCompare : pools.get(index))
+                for (String toCompare : getUserPhrasePools().get(index))
                 {
                     String tmpToFind = toFind;
                     toCompare = toCompare.replaceAll(" ", "");
@@ -101,38 +99,21 @@ public class DataBase
         return 0;
     }
     
-    public String getQuestion ()
+    public String getBotPhrase (int poolIndex)
     {
-        int index = 0;
-        int indexRange = 0;
-        
-        //region --> Getting Amount of keys that are < 0
-        for (int i : pools.keySet())
-        {
-            if(i < 0) indexRange++;
-        }
-        //endregion
-        //region --> Getting rand index in the pools list (only if < 0)
-        while (index >= 0)
-        {
-            index = -(new Random().nextInt(indexRange));
-        }
-        //endregion
-        
-        return getQuestion(index);
-    }
+        int poolSize = getBotPhrasePool(poolIndex).length;
+        int phraseIndex = new Random().nextInt(poolSize);
     
-    public String getQuestion (int poolIndex)
-    {
-        int poolSize = getPool(poolIndex).length;
-        
-        return getPool(poolIndex)[new Random().nextInt(poolSize)];
+        return getBotPhrase(poolIndex, phraseIndex);
     }
     
     //Override methods ==============================================
     @Override
     public String toString ()
     {
-        return "pools : " + getPools().size() + " — links : " + getLinks().size();
+        return String.format("UserPhrasePools : %d — BotPhrasesPools : %d — links : %d",
+                             getUserPhrasePools().size(),
+                             getBotPhrasePools().size(),
+                             getLinks().size());
     }
 }
