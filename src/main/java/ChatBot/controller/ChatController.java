@@ -12,7 +12,7 @@ import java.util.Random;
  .
  . The ChatController	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 05/05/17 22:23
+ . Last Modified : 05/05/17 23:51
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -27,12 +27,12 @@ public class ChatController
     public void initialize ()
     {
         bot = new Bot();
+        Random rand = new Random();
     
-        int flipCoin = new Random().nextInt(100);
-        if(flipCoin < 50)
+        if(rand.nextBoolean())
         {
-            displayText("ChatBot", bot.getBotPhrase(1));
-            displayText("ChatBot", bot.getBotPhrase(2));
+            displayText("ChatBot", bot.getBotPhrase(1)); //Bonjour
+            displayText("ChatBot", bot.getBotPhrase(rand.nextBoolean() ? 2 : 5)); //Ça va ? — Je suis ChatBot
         }
     }
     
