@@ -11,7 +11,7 @@ import java.io.IOException;
  .
  . The Const	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 30/04/17 12:48
+ . Last Modified : 05/05/17 20:00
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -26,6 +26,24 @@ import java.io.IOException;
 @SuppressWarnings({"WeakerAccess", "unchecked"})
 public class Const
 {
+    //region --> Specifications for accessing MainView.fxml
+    public static final String CHAT_VIEW_PATH   = "ChatView.fxml";
+    public static final int    CHAT_VIEW_WIDTH  = 400;
+    public static final int    CHAT_VIEW_HEIGHT = 400;
+    //endregion
+    
+    //region --> Specifications for accessing LearningView.fxml
+    public static final String LEARNING_VIEW_PATH   = "LearningView.fxml";
+    public static final int    LEARNING_VIEW_WIDTH  = 300;
+    public static final int    LEARNING_VIEW_HEIGHT = 230;
+    //endregion
+    
+    //region --> Specifications for accessing LinksView.fxml
+    public static final String LINKS_VIEW_PATH   = "LinksView.fxml";
+    public static final int    LINKS_VIEW_WIDTH  = 460;
+    public static final int    LINKS_VIEW_HEIGHT = 400;
+    //endregion
+    
     //region --> Specifications for accessing the .json serialized files
     public static final String SERIALIZATION_PATH = "./src/main/resources/serialization/";
     public static final String DB_PATH            = "db.json";
