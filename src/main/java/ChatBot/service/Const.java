@@ -5,13 +5,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /*................................................................................................................................
  . Copyright (c)
  .
  . The Const	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 05/05/17 23:44
+ . Last Modified : 06/05/17 00:18
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -98,5 +100,24 @@ public class Const
         }
         
         return db;
+    }
+    
+    public enum ReplacementCode
+    {
+        TIME_HOUR(new SimpleDateFormat("HH:mm").format(new Date())),
+        TIME_DAY(new SimpleDateFormat("EEEE d MMM yyyy").format(new Date())),
+        TIME_DATE(new SimpleDateFormat("dd/MM/yyyy").format(new Date()));
+        
+        private String date;
+        
+        ReplacementCode (String date)
+        {
+            this.date = date;
+        }
+        
+        public String getDate ()
+        {
+            return date;
+        }
     }
 }
