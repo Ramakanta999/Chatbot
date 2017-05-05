@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 <!--..............................................................................................................................
   . Copyright (c)
   .
   . The LearningView.fxml	 Class was Coded by : Alexandre BOLOT
   .
-  . Last Modified : 04/05/17 18:59
+  . Last Modified : 05/05/17 22:44
   .
   . Contact : bolotalex06@gmail.com
   .............................................................................................................................-->
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0"
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="300.0"
 			xmlns="http://javafx.com/javafx/8.0.111" fx:controller="ChatBot.controller.LearningController">
 	<children>
 		<TextField fx:id="txtTrigger" layoutX="25.0" layoutY="83.0" prefWidth="250.0"/>
@@ -25,5 +25,6 @@
 		</Label>
 		<Label layoutX="26.0" layoutY="66.0" text="Trigger"/>
 		<Label layoutX="26.0" layoutY="123.0" text="Answer"/>
+		<Button layoutX="215.0" layoutY="185.0" mnemonicParsing="false" onAction="#btnAdd_onAction" prefWidth="60.0" text="Add"/>
 	</children>
 </AnchorPane>
