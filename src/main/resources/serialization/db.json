@@ -14,32 +14,38 @@
       "comment tu vas ?"
     ],
     "2": [
-      "ça va [bien] [merci]",
-      "[je vais] [assez] [plutôt] [très] bien [merci]",
-      "[je vais] [assez] [plutôt] [très] mal [merci]"
+      "[oui] ça va [bien] [merci]",
+      "[je vais] [assez] [plutôt] [très] bien [merci]"
     ],
     "3": [
-      "oui [merci] et toi ?",
-      "non [merci] et toi ?",
-      "ça va [bien] [merci] et toi ?",
-      "[je vais] [assez] [plutôt] [très] bien [merci] et toi ?",
-      "[je vais] [assez] [plutôt] [très] mal [merci] et toi ?"
+      "ça [ne] va pas [bien] [trop]",
+      "non pas trop",
+      "[je vais] [assez] [plutôt] [très] mal [merci]"
     ],
     "4": [
+      "oui [merci] et toi ?",
+      "ça va [bien] [merci] et toi ?",
+      "[je vais] [assez] [plutôt] [très] bien [merci] et toi ?"
+    ],
+    "5": [
+      "non [merci] et toi ?",
+      "[je vais] [assez] [plutôt] [très] mal [merci] et toi ?"
+    ],
+    "6": [
       "au revoir",
       "à [plus] [tard] [bientôt] [dieu]",
       "ciao",
       "stop"
     ],
-    "5": [
+    "7": [
       "comment tu t'appelles ?",
       "qui est-tu ?",
       "quel est ton nom ?"
     ],
-    "6": [
+    "8": [
       "[il est] quelle heure [est-il] ?"
     ],
-    "7": [
+    "9": [
       "[on est] quel jour [aujourd'hui] ?",
       "[on est] le combien [aujourd'hui] ?"
     ]
@@ -53,7 +59,7 @@
       2
     ],
     "1": [
-      4
+      5
     ],
     "2": [
       3
@@ -61,55 +67,72 @@
     "3": [
       4
     ],
-    "5": [
+    "4": [
       5
     ],
-    "6": [
+    "5": [
       6
     ],
     "7": [
       7
+    ],
+    "8": [
+      8
+    ],
+    "9": [
+      9
     ]
   },
   "botPhrasePools": {
     "0": [
-      "je ne comprends pas...",
-      "..."
+      "Je ne comprends pas...",
+      "Désolé, je n'ai pas compris"
     ],
     "1": [
-      "bonjour",
-      "coucou",
-      "salut",
-      "bonjour, maître"
+      "Bonjour",
+      "Coucou",
+      "Salut",
+      "Bonjour, maître"
     ],
     "2": [
-      "comment ça va ?",
-      "ça va ?",
-      "comment tu vas ?",
-      "ça va bien ?"
+      "Comment ça va ?",
+      "Ça va ?",
+      "Comment tu vas ?",
+      "Ça va bien ?"
     ],
     "3": [
-      "ok cool !",
-      "tant mieux !",
-      "ça fait plaisir à entendre"
+      "Ok cool !",
+      "Tant mieux !",
+      "Ça fait plaisir à entendre"
     ],
     "4": [
-      "ça va bien",
-      "bien merci",
-      "je vais très bien",
-      "je vais bien"
+      "Désolé de l'apprendre...",
+      "Ah mince... On change de sujet ?",
+      "J'en suis désolé..."
     ],
     "5": [
-      "je suis ChatBot",
-      "je m'appelle ChatBot",
-      "mon nom est ChatBot"
+      "Ça va bien",
+      "Bien merci",
+      "Je vais très bien",
+      "Je vais bien"
     ],
     "6": [
-      "il est TIME_HOUR"
+      "Désolé de l'apprendre... moi ça va bien",
+      "Désolé de l'apprendre... et moi... comme un robot",
+      "Ah mince... On change de sujet ?",
+      "J'en suis désolé... moi ça va pas mal"
     ],
     "7": [
-      "on est le TIME_DAY",
-      "on est le TIME_DATE"
+      "Je suis ChatBot",
+      "Je m'appelle ChatBot",
+      "Mon nom est ChatBot"
+    ],
+    "8": [
+      "Il est TIME_HOUR"
+    ],
+    "9": [
+      "On est le TIME_DAY",
+      "On est le TIME_DATE"
     ]
   }
 }
