@@ -13,7 +13,7 @@ import java.util.Date;
  .
  . The Const	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 06/05/17 00:18
+ . Last Modified : 07/05/17 18:53
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -52,6 +52,7 @@ public class Const
     //endregion
     
     public static final int EXIT_INDEX = 4;
+    public static final int NOT_FOUND  = 0;
     
     /**
      This method will Serialize [db] at SERIALIZATION_PATH + DB_PATH <br>

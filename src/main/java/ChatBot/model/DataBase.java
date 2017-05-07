@@ -1,5 +1,7 @@
 package ChatBot.model;
 
+import ChatBot.service.Const;
+
 import java.util.HashMap;
 import java.util.Random;
 
@@ -8,7 +10,7 @@ import java.util.Random;
  .
  . The DataBase	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 05/05/17 23:02
+ . Last Modified : 07/05/17 18:53
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -75,31 +77,31 @@ public class DataBase
                 String tmpToFind = toFind;
                 tmpToFind = tmpToFind.replaceAll(" ", "");
                 toCompare = toCompare.replaceAll(" ", "");
-        
+    
                 //region --> Case where there is instant match
                 if(tmpToFind.equalsIgnoreCase(toCompare))
                 {
                     return index;
                 }
                 //endregion
-        
+    
                 //region --> Case where there are multiple combinations
                 String[] strings = toCompare.split("[\\[\\]]");
-        
+    
                 tmpToFind = tmpToFind.replace("\\?", "\\?");
-        
+    
                 for (String string : strings)
                 {
                     tmpToFind = tmpToFind.replace(string, "");
                 }
-        
+    
                 if(tmpToFind.isEmpty()) return index;
                 //endregion
             }
         }
-        
-        //0 is the poolIndex of the not understanding phrases
-        return 0;
+    
+        //poolIndex of the not understanding phrases
+        return Const.NOT_FOUND;
     }
     
     public int findBotPhrase (String toFind)
