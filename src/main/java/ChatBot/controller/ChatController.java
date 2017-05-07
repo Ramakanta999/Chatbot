@@ -7,12 +7,14 @@ import javafx.scene.control.TextField;
 
 import java.util.Random;
 
+import static ChatBot.service.Const.*;
+
 /*................................................................................................................................
  . Copyright (c)
  .
  . The ChatController	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 05/05/17 23:51
+ . Last Modified : 07/05/17 19:20
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -31,8 +33,8 @@ public class ChatController
     
         if(rand.nextBoolean())
         {
-            displayText("ChatBot", bot.getBotPhrase(1)); //Bonjour
-            displayText("ChatBot", bot.getBotPhrase(rand.nextBoolean() ? 2 : 5)); //Ça va ? — Je suis ChatBot
+            displayText("ChatBot", bot.getBotPhrase(GREETINGS));
+            displayText("ChatBot", bot.getBotPhrase(rand.nextBoolean() ? HOW_ARE_YOU : MY_NAME_IS));
         }
     }
     
