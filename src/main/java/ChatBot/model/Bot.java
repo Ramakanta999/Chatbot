@@ -12,7 +12,7 @@ import static ChatBot.service.Const.EXIT_INDEX;
  .
  . The Bot	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 06/05/17 00:19
+ . Last Modified : 08/05/17 11:59
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -73,7 +73,7 @@ public class Bot
     {
         for (ReplacementCode code : ReplacementCode.values())
         {
-            if(string.contains(code.toString())) string = string.replace(code.toString(), code.getDate());
+            if(string.contains(code.toString())) string = string.replace(code.toString(), code.getValue());
         }
         
         return string;
