@@ -13,7 +13,7 @@ import java.util.Date;
  .
  . The Const	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 07/05/17 19:19
+ . Last Modified : 08/05/17 12:00
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -110,18 +110,24 @@ public class Const
     {
         TIME_HOUR(new SimpleDateFormat("HH:mm").format(new Date())),
         TIME_DAY(new SimpleDateFormat("EEEE d MMM yyyy").format(new Date())),
-        TIME_DATE(new SimpleDateFormat("dd/MM/yyyy").format(new Date()));
-        
-        private String date;
-        
-        ReplacementCode (String date)
+        TIME_DATE(new SimpleDateFormat("dd/MM/yyyy").format(new Date())),
+        CHATBOT_NAME("ChatBot");
+    
+        private String value;
+    
+        ReplacementCode (String value)
         {
-            this.date = date;
+            this.value = value;
         }
-        
-        public String getDate ()
+    
+        public String getValue ()
         {
-            return date;
+            return value;
+        }
+    
+        public void setValue (String value)
+        {
+            this.value = value;
         }
     }
 }

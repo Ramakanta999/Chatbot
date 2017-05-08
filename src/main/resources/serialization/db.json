@@ -123,9 +123,9 @@
       "J'en suis désolé... moi ça va pas mal"
     ],
     "7": [
-      "Je suis ChatBot",
-      "Je m'appelle ChatBot",
-      "Mon nom est ChatBot"
+      "Je suis CHATBOT_NAME",
+      "Je m'appelle CHATBOT_NAME",
+      "Mon nom est CHATBOT_NAME"
     ],
     "8": [
       "Il est TIME_HOUR"
