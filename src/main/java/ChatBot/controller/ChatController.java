@@ -9,13 +9,14 @@ import java.util.Random;
 
 import static ChatBot.service.Const.*;
 import static ChatBot.service.Const.ReplacementCode.CHATBOT_NAME;
+import static ChatBot.service.Const.ReplacementCode.USER_NAME;
 
 /*................................................................................................................................
  . Copyright (c)
  .
  . The ChatController	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 08/05/17 17:27
+ . Last Modified : 08/05/17 18:55
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -42,7 +43,7 @@ public class ChatController
     public void txtInput_onAction ()
     {
         String input = txtInput.getText();
-        displayText("Alex", input);
+        displayText(USER_NAME.getValue(), input);
         txtInput.setText("");
     
         String output = bot.getBotAnswer(input);
