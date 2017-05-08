@@ -13,7 +13,7 @@ import java.util.Date;
  .
  . The Const	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 08/05/17 12:00
+ . Last Modified : 08/05/17 15:52
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -51,7 +51,7 @@ public class Const
     public static final String DB_PATH            = "db.json";
     //endregion
     
-    public static final int NOT_FOUND   = 0;
+    public static final int NOT_FOUND   = -1;
     public static final int GREETINGS   = 1;
     public static final int HOW_ARE_YOU = 2;
     public static final int MY_NAME_IS  = 7;
