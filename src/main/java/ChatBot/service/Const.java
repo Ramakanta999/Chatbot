@@ -13,7 +13,7 @@ import java.util.Date;
  .
  . The Const	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 09/05/17 08:41
+ . Last Modified : 09/05/17 10:22
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -31,7 +31,7 @@ public class Const
     //region --> Specifications for accessing MainView.fxml
     public static final String CHAT_VIEW_PATH   = "ChatView.fxml";
     public static final int    CHAT_VIEW_WIDTH  = 400;
-    public static final int    CHAT_VIEW_HEIGHT = 400;
+    public static final int    CHAT_VIEW_HEIGHT = 430;
     //endregion
     
     //region --> Specifications for accessing LearningView.fxml
