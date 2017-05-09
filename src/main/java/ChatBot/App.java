@@ -15,7 +15,7 @@ import static ChatBot.service.Const.*;
  .
  . The App	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 09/05/17 10:12
+ . Last Modified : 09/05/17 10:23
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -37,8 +37,6 @@ public class App extends Application
         primaryStage.setTitle("ChatBot");
         primaryStage.setScene(new Scene(root, CHAT_VIEW_WIDTH, CHAT_VIEW_HEIGHT));
         primaryStage.setResizable(false);
-        primaryStage.setX((screen.getWidth() - CHAT_VIEW_WIDTH) / 2);
-        primaryStage.setY((screen.getHeight() - CHAT_VIEW_HEIGHT) / 2);
     
         primaryStage.show();
     }
