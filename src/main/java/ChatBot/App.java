@@ -2,10 +2,8 @@ package ChatBot;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import static ChatBot.service.Const.*;
@@ -15,7 +13,7 @@ import static ChatBot.service.Const.*;
  .
  . The App	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 09/05/17 10:23
+ . Last Modified : 09/05/17 10:24
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -31,8 +29,6 @@ public class App extends Application
     @Override
     public void start (Stage primaryStage) throws Exception
     {
-        Rectangle2D screen = Screen.getPrimary().getVisualBounds();
-    
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource(CHAT_VIEW_PATH));
         primaryStage.setTitle("ChatBot");
         primaryStage.setScene(new Scene(root, CHAT_VIEW_WIDTH, CHAT_VIEW_HEIGHT));
