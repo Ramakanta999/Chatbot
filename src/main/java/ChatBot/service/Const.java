@@ -13,7 +13,7 @@ import java.util.Date;
  .
  . The Const	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 08/05/17 15:52
+ . Last Modified : 09/05/17 08:41
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -36,8 +36,8 @@ public class Const
     
     //region --> Specifications for accessing LearningView.fxml
     public static final String LEARNING_VIEW_PATH   = "LearningView.fxml";
-    public static final int    LEARNING_VIEW_WIDTH  = 300;
-    public static final int    LEARNING_VIEW_HEIGHT = 230;
+    public static final int    LEARNING_VIEW_WIDTH  = 600;
+    public static final int    LEARNING_VIEW_HEIGHT = 400;
     //endregion
     
     //region --> Specifications for accessing LinksView.fxml
@@ -106,13 +106,24 @@ public class Const
         return db;
     }
     
+    public static String getHelpMessage ()
+    {
+        StringBuilder helpMessage = new StringBuilder();
+        
+        helpMessage.append("Command Lines you can use : ").append("\n").append("/ChangeBotName:[newName]").append("\n").append(
+                "/ChangeUserName:[newName]").append("\n").append("/Exit").append("\n");
+        
+        return helpMessage.toString();
+    }
+    
     public enum ReplacementCode
     {
         TIME_HOUR(new SimpleDateFormat("HH:mm").format(new Date())),
         TIME_DAY(new SimpleDateFormat("EEEE d MMM yyyy").format(new Date())),
         TIME_DATE(new SimpleDateFormat("dd/MM/yyyy").format(new Date())),
-        CHATBOT_NAME("ChatBot");
-    
+        CHATBOT_NAME("ChatBot"),
+        USER_NAME("User");
+        
         private String value;
     
         ReplacementCode (String value)
@@ -129,5 +140,13 @@ public class Const
         {
             this.value = value;
         }
+    }
+    
+    public enum CommandLine
+    {
+        ChangeBotName,
+        ChangeUserName,
+        Exit,
+        Help
     }
 }
