@@ -11,7 +11,7 @@ import java.util.Random;
  .
  . The DataBase	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 09/05/17 09:01
+ . Last Modified : 09/05/17 09:06
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -93,7 +93,7 @@ public class DataBase
         return -1;
     }
     
-    private boolean findInArray (String toFind, String[] pool)
+    public boolean findInArray (String toFind, String[] pool)
     {
         for (String toCompare : pool)
         {
