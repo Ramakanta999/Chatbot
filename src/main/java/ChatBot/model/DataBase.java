@@ -11,7 +11,7 @@ import java.util.Random;
  .
  . The DataBase	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 09/05/17 08:42
+ . Last Modified : 09/05/17 09:01
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -72,63 +72,30 @@ public class DataBase
     {
         for (int poolIndex : getUserPhrasePools().keySet())
         {
-            int userPool = findUserPhrase(toFind, poolIndex);
+            boolean found = findInArray(toFind, getUserPhrasePool(poolIndex));
     
-            if(userPool != Const.NOT_FOUND) return userPool;
+            if(found) return poolIndex;
         }
     
-        //poolIndex of the not understanding phrases
-        return Const.NOT_FOUND;
-    }
-    
-    public int findUserPhrase (String toFind, int poolIndex)
-    {
-        for (String toCompare : getUserPhrasePool(poolIndex))
-        {
-            String tmpToFind = toFind;
-            tmpToFind = tmpToFind.replaceAll(" ", "");
-            toCompare = toCompare.replaceAll(" ", "");
-            
-            //region --> Case where there is instant match
-            if(tmpToFind.equalsIgnoreCase(toCompare))
-            {
-                return poolIndex;
-            }
-            //endregion
-            
-            //region --> Case where there are multiple combinations
-            String[] strings = toCompare.split("[\\[\\]]");
-            
-            tmpToFind = tmpToFind.replace("\\?", "\\?");
-            
-            for (String string : strings)
-            {
-                tmpToFind = tmpToFind.replace(string, "");
-            }
-            
-            if(tmpToFind.isEmpty()) return poolIndex;
-            //endregion
-        }
-        
         //poolIndex of the not understanding phrases
         return Const.NOT_FOUND;
     }
     
     public int findBotPhrase (String toFind)
     {
-        for (int index : getBotPhrasePools().keySet())
+        for (int poolIndex : getBotPhrasePools().keySet())
         {
-            int botPool = findBotPhrase(toFind, index);
+            boolean found = findInArray(toFind, getBotPhrasePool(poolIndex));
     
-            if(botPool != Const.NOT_FOUND) return botPool;
+            if(found) return poolIndex;
         }
         
         return -1;
     }
     
-    public int findBotPhrase (String toFind, int poolIndex)
+    private boolean findInArray (String toFind, String[] pool)
     {
-        for (String toCompare : getBotPhrasePool(poolIndex))
+        for (String toCompare : pool)
         {
             String tmpToFind = toFind;
             tmpToFind = tmpToFind.replaceAll(" ", "");
@@ -137,7 +104,7 @@ public class DataBase
             //region --> Case where there is instant match
             if(tmpToFind.equalsIgnoreCase(toCompare))
             {
-                return poolIndex;
+                return true;
             }
             //endregion
             
@@ -150,13 +117,13 @@ public class DataBase
             {
                 tmpToFind = tmpToFind.replace(string, "");
             }
-            
-            if(tmpToFind.isEmpty()) return poolIndex;
+    
+            if(tmpToFind.isEmpty()) return true;
             //endregion
         }
-        
-        //poolIndex of the not understanding phrases
-        return Const.NOT_FOUND;
+    
+        //Found in this array
+        return false;
     }
     
     public String getBotPhrase (int poolIndex)
