@@ -5,26 +5,71 @@
   .
   . The LearningView.fxml	 Class was Coded by : Alexandre BOLOT
   .
-  . Last Modified : 05/05/17 22:44
+  . Last Modified : 08/05/17 23:49
   .
   . Contact : bolotalex06@gmail.com
   .............................................................................................................................-->
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="300.0"
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
 			xmlns="http://javafx.com/javafx/8.0.111" fx:controller="ChatBot.controller.LearningController">
 	<children>
-		<TextField fx:id="txtTrigger" layoutX="25.0" layoutY="83.0" prefWidth="250.0"/>
-		<TextField fx:id="txtAnswer" layoutX="25.0" layoutY="140.0" prefWidth="250.0"/>
-		<Label layoutX="63.0" layoutY="28.0" text="Adding new Phrases">
+		<!-- =========== Labels ==================================================== -->
+		<Label layoutX="58.0" layoutY="20.0" text="Add new Phrases" AnchorPane.leftAnchor="76.0" AnchorPane.topAnchor="20.0">
 			<font>
 				<Font size="18.0"/>
 			</font>
 		</Label>
-		<Label layoutX="26.0" layoutY="66.0" text="Trigger"/>
-		<Label layoutX="26.0" layoutY="123.0" text="Answer"/>
-		<Button layoutX="215.0" layoutY="185.0" mnemonicParsing="false" onAction="#btnAdd_onAction" prefWidth="60.0" text="Add"/>
+		<Label layoutX="66.0" layoutY="220.0" text="Add to User's Pool" AnchorPane.bottomAnchor="157.0" AnchorPane.leftAnchor="66.0">
+			<font>
+				<Font size="18.0"/>
+			</font>
+		</Label>
+		<Label layoutX="376.0" layoutY="220.0" text="Add to ChatBot's Pool" AnchorPane.bottomAnchor="157.0" AnchorPane.rightAnchor="56.0">
+			<font>
+				<Font size="18.0"/>
+			</font>
+		</Label>
+		<Label layoutX="368.0" layoutY="20.0" text="Add new Links" AnchorPane.rightAnchor="88.0" AnchorPane.topAnchor="20.0">
+			<font>
+				<Font size="18.0"/>
+			</font>
+		</Label>
+		<Label layoutX="20.0" layoutY="260.0" prefHeight="27.0" prefWidth="87.0" text="Pool's index :" AnchorPane.bottomAnchor="113.0" AnchorPane.leftAnchor="20.0"/>
+		<Label layoutX="330.0" layoutY="260.0" prefHeight="27.0" prefWidth="87.0" text="Pool's index :"/>
+		<Label layoutX="330.0" layoutY="60.0" prefHeight="27.0" prefWidth="87.0" text="User's Pool :"/>
+		<Label layoutX="330.0" layoutY="100.0" prefHeight="27.0" prefWidth="87.0" text="Bot's Pool :" AnchorPane.topAnchor="100.0"/>
+		
+		<!-- =========== Serparators =============================================== -->
+		<Separator layoutX="45.0" layoutY="199.0" minWidth="-Infinity" prefHeight="1.0" prefWidth="200.0" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="320.0"
+				   AnchorPane.topAnchor="200.0"/>
+		<Separator layoutX="297.0" layoutY="14.0" minWidth="-Infinity" orientation="VERTICAL" prefHeight="100.0" prefWidth="1.0" AnchorPane.bottomAnchor="220.0" AnchorPane.leftAnchor="300.0"
+				   AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="20.0"/>
+		<Separator layoutX="55.0" layoutY="209.0" minWidth="-Infinity" prefHeight="1.0" prefWidth="200.0" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="320.0" AnchorPane.rightAnchor="20.0"
+				   AnchorPane.topAnchor="200.0"/>
+		<Separator layoutX="307.0" layoutY="24.0" minWidth="-Infinity" orientation="VERTICAL" prefHeight="100.0" prefWidth="1.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="300.0"
+				   AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="220.0"/>
+		
+		<!-- =========== Add new Phrases =========================================== -->
+		<TextField fx:id="txtNewUser" layoutX="20.0" layoutY="60.0" prefWidth="250.0" promptText="User's Phrase" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="60.0"/>
+		<TextField fx:id="txtNewBot" layoutX="20.0" layoutY="100.0" prefWidth="250.0" promptText="ChatBot's Answer" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="100.0"/>
+		<Button layoutX="210.0" layoutY="140.0" mnemonicParsing="false" onAction="#btnNewPhrases_onAction" prefWidth="60.0" text="Add" AnchorPane.leftAnchor="210.0" AnchorPane.topAnchor="140.0"/>
+		
+		<!-- =========== Add new Links ============================================= -->
+		<Spinner fx:id="spinnerLinksUser" layoutX="430.0" layoutY="60.0" prefWidth="150.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0"/>
+		<Spinner fx:id="spinnerLinksBot" layoutX="430.0" layoutY="100.0" prefWidth="150.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="100.0"/>
+		<Button layoutX="520.0" layoutY="140.0" mnemonicParsing="false" onAction="#btnAddLinks_onAction" prefWidth="60.0" text="Add" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="140.0"/>
+		
+		<!-- =========== Add to User's Pool ======================================== -->
+		<Spinner fx:id="spinnerAddUser" layoutX="100.0" layoutY="260.0" prefWidth="150.0" AnchorPane.bottomAnchor="113.0" AnchorPane.leftAnchor="120.0"/>
+		<TextField fx:id="txtAddUser" layoutX="20.0" layoutY="300.0" prefWidth="250.0" promptText="Phrase to Add" AnchorPane.bottomAnchor="73.0" AnchorPane.leftAnchor="20.0"/>
+		<Button layoutX="210.0" layoutY="340.0" mnemonicParsing="false" onAction="#btnAddUserPool_onAction" prefWidth="60.0" text="Add" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="210.0"/>
+		
+		<!-- =========== Add to ChatBot's Pool ===================================== -->
+		<Spinner fx:id="spinnerAddBot" layoutX="430.0" layoutY="260.0" prefWidth="150.0" AnchorPane.bottomAnchor="113.0"/>
+		<TextField fx:id="txtAddBot" layoutX="330.0" layoutY="300.0" prefWidth="250.0" promptText="Phrase to Add" AnchorPane.bottomAnchor="73.0" AnchorPane.rightAnchor="20.0"/>
+		<Button layoutX="520.0" layoutY="340.0" mnemonicParsing="false" onAction="#btnAddBotPool_onAction" prefWidth="60.0" text="Add" AnchorPane.bottomAnchor="33.0" AnchorPane.rightAnchor="20.0"/>
 	</children>
 </AnchorPane>
