@@ -5,20 +5,25 @@
   .
   . The ChatView.fxml	 Class was Coded by : Alexandre BOLOT
   .
-  . Last Modified : 02/05/17 20:08
+  . Last Modified : 09/05/17 10:21
   .
   . Contact : bolotalex06@gmail.com
   .............................................................................................................................-->
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0"
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="400.0"
 			xmlns="http://javafx.com/javafx/8.0.111" fx:controller="ChatBot.controller.ChatController">
 	<children>
-		<TextField fx:id="txtInput" layoutX="14.0" layoutY="359.0" onAction="#txtInput_onAction" prefHeight="30.0" prefWidth="374.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0"
-				   AnchorPane.rightAnchor="15.0"/>
+		<TextField fx:id="txtInput" layoutX="15.0" layoutY="350.0" onAction="#txtInput_onAction" prefHeight="27.0" prefWidth="374.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0"
+				   AnchorPane.topAnchor="350.0"/>
 		<TextArea fx:id="txtChat" editable="false" layoutX="67.0" layoutY="-16.0" prefHeight="325.0" prefWidth="370.0" wrapText="true" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0"
 				  AnchorPane.topAnchor="15.0"/>
+		<Button layoutX="15.0" layoutY="387.0" mnemonicParsing="false" onAction="#btnSeeConnections_onAction" prefHeight="27.0" text="See Phrase Connections" AnchorPane.leftAnchor="15.0"
+				AnchorPane.topAnchor="387.0"/>
+		<Button layoutX="215.0" layoutY="387.0" mnemonicParsing="false" onAction="#btnAddEntriesAndLinks_onAction" prefHeight="27.0" text="Add new Entries/Links" AnchorPane.rightAnchor="15.0"
+				AnchorPane.topAnchor="387.0"/>
 	</children>
 </AnchorPane>
