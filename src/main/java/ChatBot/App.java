@@ -15,7 +15,7 @@ import static ChatBot.service.Const.*;
  .
  . The App	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 05/05/17 23:49
+ . Last Modified : 09/05/17 10:12
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -40,24 +40,6 @@ public class App extends Application
         primaryStage.setX((screen.getWidth() - CHAT_VIEW_WIDTH) / 2);
         primaryStage.setY((screen.getHeight() - CHAT_VIEW_HEIGHT) / 2);
     
-        Stage stage2 = new Stage();
-        Parent root2 = FXMLLoader.load(getClass().getClassLoader().getResource(LEARNING_VIEW_PATH));
-        stage2.setTitle("Teaching");
-        stage2.setScene(new Scene(root2, LEARNING_VIEW_WIDTH, LEARNING_VIEW_HEIGHT));
-        stage2.setResizable(false);
-        stage2.setX(primaryStage.getX() + CHAT_VIEW_WIDTH);
-        stage2.setY(primaryStage.getY());
-    
-        Stage stage3 = new Stage();
-        Parent root3 = FXMLLoader.load(getClass().getClassLoader().getResource(LINKS_VIEW_PATH));
-        stage3.setTitle("Links");
-        stage3.setScene(new Scene(root3, LINKS_VIEW_WIDTH, LINKS_VIEW_HEIGHT));
-        stage3.setResizable(false);
-        stage3.setX(primaryStage.getX() - LINKS_VIEW_WIDTH);
-        stage3.setY(primaryStage.getY());
-    
-        stage2.show();
-        stage3.show();
         primaryStage.show();
     }
 }
