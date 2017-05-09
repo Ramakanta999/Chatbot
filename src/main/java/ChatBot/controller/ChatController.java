@@ -1,7 +1,6 @@
 package ChatBot.controller;
 
 import ChatBot.model.Bot;
-import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -16,7 +15,7 @@ import static ChatBot.service.Const.ReplacementCode.USER_NAME;
  .
  . The ChatController	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 08/05/17 18:55
+ . Last Modified : 09/05/17 08:38
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -27,7 +26,6 @@ public class ChatController
     public  TextArea  txtChat;
     private Bot       bot;
     
-    @FXML
     public void initialize ()
     {
         bot = new Bot();
