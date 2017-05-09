@@ -2,6 +2,7 @@ package ChatBot.model;
 
 import ChatBot.service.Const;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -10,7 +11,7 @@ import java.util.Random;
  .
  . The DataBase	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 07/05/17 18:53
+ . Last Modified : 09/05/17 08:42
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -31,7 +32,6 @@ public class DataBase
     }
     
     //Getters and Setters =======================================================
-    
     public HashMap<Integer, String[]> getUserPhrasePools ()
     {
         return userPhrasePools;
@@ -70,36 +70,46 @@ public class DataBase
     //Utils =========================================================
     public int findUserPhrase (String toFind)
     {
-        for (int index : getUserPhrasePools().keySet())
+        for (int poolIndex : getUserPhrasePools().keySet())
         {
-            for (String toCompare : getUserPhrasePool(index))
-            {
-                String tmpToFind = toFind;
-                tmpToFind = tmpToFind.replaceAll(" ", "");
-                toCompare = toCompare.replaceAll(" ", "");
+            int userPool = findUserPhrase(toFind, poolIndex);
     
-                //region --> Case where there is instant match
-                if(tmpToFind.equalsIgnoreCase(toCompare))
-                {
-                    return index;
-                }
-                //endregion
-    
-                //region --> Case where there are multiple combinations
-                String[] strings = toCompare.split("[\\[\\]]");
-    
-                tmpToFind = tmpToFind.replace("\\?", "\\?");
-    
-                for (String string : strings)
-                {
-                    tmpToFind = tmpToFind.replace(string, "");
-                }
-    
-                if(tmpToFind.isEmpty()) return index;
-                //endregion
-            }
+            if(userPool != Const.NOT_FOUND) return userPool;
         }
     
+        //poolIndex of the not understanding phrases
+        return Const.NOT_FOUND;
+    }
+    
+    public int findUserPhrase (String toFind, int poolIndex)
+    {
+        for (String toCompare : getUserPhrasePool(poolIndex))
+        {
+            String tmpToFind = toFind;
+            tmpToFind = tmpToFind.replaceAll(" ", "");
+            toCompare = toCompare.replaceAll(" ", "");
+            
+            //region --> Case where there is instant match
+            if(tmpToFind.equalsIgnoreCase(toCompare))
+            {
+                return poolIndex;
+            }
+            //endregion
+            
+            //region --> Case where there are multiple combinations
+            String[] strings = toCompare.split("[\\[\\]]");
+            
+            tmpToFind = tmpToFind.replace("\\?", "\\?");
+            
+            for (String string : strings)
+            {
+                tmpToFind = tmpToFind.replace(string, "");
+            }
+            
+            if(tmpToFind.isEmpty()) return poolIndex;
+            //endregion
+        }
+        
         //poolIndex of the not understanding phrases
         return Const.NOT_FOUND;
     }
@@ -108,13 +118,45 @@ public class DataBase
     {
         for (int index : getBotPhrasePools().keySet())
         {
-            for (String toCompare : getBotPhrasePool(index))
-            {
-                if(toFind.equalsIgnoreCase(toCompare)) return index;
-            }
+            int botPool = findBotPhrase(toFind, index);
+    
+            if(botPool != Const.NOT_FOUND) return botPool;
         }
         
         return -1;
+    }
+    
+    public int findBotPhrase (String toFind, int poolIndex)
+    {
+        for (String toCompare : getBotPhrasePool(poolIndex))
+        {
+            String tmpToFind = toFind;
+            tmpToFind = tmpToFind.replaceAll(" ", "");
+            toCompare = toCompare.replaceAll(" ", "");
+            
+            //region --> Case where there is instant match
+            if(tmpToFind.equalsIgnoreCase(toCompare))
+            {
+                return poolIndex;
+            }
+            //endregion
+            
+            //region --> Case where there are multiple combinations
+            String[] strings = toCompare.split("[\\[\\]]");
+            
+            tmpToFind = tmpToFind.replace("\\?", "\\?");
+            
+            for (String string : strings)
+            {
+                tmpToFind = tmpToFind.replace(string, "");
+            }
+            
+            if(tmpToFind.isEmpty()) return poolIndex;
+            //endregion
+        }
+        
+        //poolIndex of the not understanding phrases
+        return Const.NOT_FOUND;
     }
     
     public String getBotPhrase (int poolIndex)
@@ -123,6 +165,52 @@ public class DataBase
         int phraseIndex = new Random().nextInt(poolSize);
     
         return getBotPhrase(poolIndex, phraseIndex);
+    }
+    
+    public void addToUserPool (String toAdd, int poolIndex)
+    {
+        String[] oldPool = getUserPhrasePool(poolIndex);
+        int newSize = oldPool.length + 1;
+        
+        String[] newPool = Arrays.copyOf(oldPool, newSize);
+        
+        newPool[newSize - 1] = toAdd;
+        
+        getUserPhrasePools().put(poolIndex, newPool);
+    }
+    
+    public void addToBotPool (String toAdd, int poolIndex)
+    {
+        String[] oldPool = getBotPhrasePool(poolIndex);
+        int newSize = oldPool.length + 1;
+        
+        String[] newPool = Arrays.copyOf(oldPool, newSize);
+        
+        newPool[newSize - 1] = toAdd;
+        
+        getBotPhrasePools().put(poolIndex, newPool);
+    }
+    
+    public void addToLink (int key, int value)
+    {
+        Integer[] oldArray = getLink(key);
+        int newSize = oldArray.length + 1;
+        
+        Integer[] newArray = Arrays.copyOf(oldArray, newSize);
+        
+        newArray[newSize - 1] = value;
+        
+        getLinks().put(key, newArray);
+    }
+    
+    public void addLink (int key, int value)
+    {
+        addLink(key, new Integer[]{value});
+    }
+    
+    public void addLink (int key, Integer[] values)
+    {
+        getLinks().put(key, values);
     }
     
     //Override methods ==============================================
