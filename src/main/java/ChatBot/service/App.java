@@ -1,4 +1,4 @@
-package ChatBot;
+package ChatBot.service;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -13,7 +13,7 @@ import static ChatBot.service.Const.*;
  .
  . The App	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 09/05/17 10:24
+ . Last Modified : 09/05/17 22:52
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
