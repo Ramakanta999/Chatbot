@@ -11,7 +11,7 @@ import java.util.Random;
  .
  . The DataBase	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 09/05/17 09:06
+ . Last Modified : 12/05/17 14:00
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -23,7 +23,7 @@ public class DataBase
     private HashMap<Integer, String[]>  botPhreasePools = new HashMap<>();
     private HashMap<Integer, Integer[]> links           = new HashMap<>();
     
-    //Constructors ==================================================
+    //Constructors ======================================================================
     public DataBase ()
     {
         userPhrasePools = new HashMap<>();
@@ -31,7 +31,7 @@ public class DataBase
         links = new HashMap<>();
     }
     
-    //Getters and Setters =======================================================
+    //Getters and Setters ===============================================================
     public HashMap<Integer, String[]> getUserPhrasePools ()
     {
         return userPhrasePools;
@@ -67,7 +67,7 @@ public class DataBase
         return getLinks().getOrDefault(index, new Integer[]{0});
     }
     
-    //Utils =========================================================
+    //Utils =============================================================================
     public int findUserPhrase (String toFind)
     {
         for (int poolIndex : getUserPhrasePools().keySet())
@@ -110,12 +110,12 @@ public class DataBase
             
             //region --> Case where there are multiple combinations
             String[] strings = toCompare.split("[\\[\\]]");
-            
-            tmpToFind = tmpToFind.replace("\\?", "\\?");
+    
+            tmpToFind = tmpToFind.replace("\\?", "\\?").toLowerCase();
             
             for (String string : strings)
             {
-                tmpToFind = tmpToFind.replace(string, "");
+                tmpToFind = tmpToFind.replace(string.toLowerCase(), "");
             }
     
             if(tmpToFind.isEmpty()) return true;
@@ -180,7 +180,7 @@ public class DataBase
         getLinks().put(key, values);
     }
     
-    //Override methods ==============================================
+    //Override methods ==================================================================
     @Override
     public String toString ()
     {
