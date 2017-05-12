@@ -13,7 +13,7 @@ import java.util.Date;
  .
  . The Const	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 09/05/17 10:22
+ . Last Modified : 12/05/17 14:01
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -77,9 +77,9 @@ public class Const
     }
     
     /**
-     This method will Deserialize [players] at SERIALIZATION_PATH + PLAYERS_PATH.<br>
-     
-     @return The list of Players that was deserialized.
+     This method will Deserialize [db] at SERIALIZATION_PATH + PLAYERS_PATH.<br>
+ 
+     @return The DataBase that was deserialized.
      */
     public static DataBase readDb ()
     {
