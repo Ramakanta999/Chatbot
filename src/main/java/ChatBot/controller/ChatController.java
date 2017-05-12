@@ -20,7 +20,7 @@ import static ChatBot.service.Const.ReplacementCode.USER_NAME;
  .
  . The ChatController	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 09/05/17 10:21
+ . Last Modified : 12/05/17 00:19
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -63,12 +63,12 @@ public class ChatController
     {
         try
         {
-            Stage stage3 = new Stage();
+            Stage stage = new Stage();
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource(LINKS_VIEW_PATH));
-            stage3.setTitle("Links");
-            stage3.setScene(new Scene(root, LINKS_VIEW_WIDTH, LINKS_VIEW_HEIGHT));
-            stage3.setResizable(false);
-            stage3.show();
+            stage.setTitle("Links");
+            stage.setScene(new Scene(root, LINKS_VIEW_WIDTH, LINKS_VIEW_HEIGHT));
+            stage.setResizable(false);
+            stage.show();
         }
         catch (IOException e)
         {
