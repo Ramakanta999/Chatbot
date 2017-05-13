@@ -13,7 +13,7 @@ import java.util.Date;
  .
  . The Const	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 12/05/17 14:01
+ . Last Modified : 13/05/17 14:48
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -48,7 +48,7 @@ public class Const
     
     //region --> Specifications for accessing the .json serialized files
     public static final String SERIALIZATION_PATH = "./src/main/resources/serialization/";
-    public static final String DB_PATH            = "db.json";
+    public static final String DB_PATH            = SERIALIZATION_PATH + "db.json";
     //endregion
     
     public static final int NOT_FOUND   = -1;
@@ -68,7 +68,7 @@ public class Const
         try
         {
             ObjectMapper mapper = new ObjectMapper();
-            mapper.writeValue(new File(SERIALIZATION_PATH + DB_PATH), db);
+            mapper.writeValue(new File(DB_PATH), db);
         }
         catch (IOException e)
         {
@@ -87,7 +87,7 @@ public class Const
         try
         {
             ObjectMapper mapper = new ObjectMapper();
-            File file = new File(SERIALIZATION_PATH + DB_PATH);
+            File file = new File(DB_PATH);
             if(file.exists() && !file.isDirectory())
             {
                 db = mapper.readValue(file, DataBase.class);
