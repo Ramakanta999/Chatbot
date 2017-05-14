@@ -6,3 +6,4 @@
   - [X] Connecting the Controller with db.json (through Const class)
 - [ ] Add more entries to db.json
 - [ ] Add JavaDoc
+- [ ] Add README.md
