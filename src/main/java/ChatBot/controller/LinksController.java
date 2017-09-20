@@ -12,7 +12,7 @@ import javafx.scene.layout.AnchorPane;
  .
  . The LinksController	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 20/09/17 10:59
+ . Last Modified : 20/09/17 11:21
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -37,8 +37,7 @@ public class LinksController
      Event Handler of search button : Triggered on a click of that button.<br>
      Shows in GUI bot User's and Bot's known linked entries.<br>
      <br>
-     __ Warning : Reads db __
-     <br>
+     __ Warning : Reads db __<br>
      __ Dependency : model.Bot __
      */
     public void search_onAction ()
