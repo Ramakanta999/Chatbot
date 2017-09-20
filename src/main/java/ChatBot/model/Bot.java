@@ -17,7 +17,7 @@ import static ChatBot.service.Const.readDb;
  .
  . The Bot	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 09/05/17 08:36
+ . Last Modified : 20/09/17 11:01
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -28,12 +28,12 @@ public class Bot
     
     public Bot ()
     {
-        db = readDb();
+        updateDb();
     }
     
     public String getBotAnswer (String input)
     {
-        db = readDb();
+        updateDb();
     
         //region --> Removing punctuation
         while (input.matches("^.*[.,;! ]$"))
@@ -72,7 +72,7 @@ public class Bot
     
     public String getBotPhrase (int poolIndex)
     {
-        db = readDb();
+        updateDb();
         
         String botPhrase = db.getBotPhrase(poolIndex);
     
@@ -119,5 +119,10 @@ public class Bot
             iae.printStackTrace();
             return "Command not found";
         }
+    }
+    
+    private void updateDb ()
+    {
+        db = readDb();
     }
 }
