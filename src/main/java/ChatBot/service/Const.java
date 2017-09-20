@@ -13,7 +13,7 @@ import java.util.Date;
  .
  . The Const	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 13/05/17 14:48
+ . Last Modified : 20/09/17 09:08
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -25,10 +25,10 @@ import java.util.Date;
  This class also holds the 4 methods used for reading and writting in the .json save files.<br>
  This way, they can be accessed and used from anywher in the project.
  */
-@SuppressWarnings({"WeakerAccess", "unchecked"})
+@SuppressWarnings("WeakerAccess")
 public class Const
 {
-    //region --> Specifications for accessing MainView.fxml
+    //region --> Specifications for accessing ChatView.fxml
     public static final String CHAT_VIEW_PATH   = "ChatView.fxml";
     public static final int    CHAT_VIEW_WIDTH  = 400;
     public static final int    CHAT_VIEW_HEIGHT = 430;
@@ -51,6 +51,7 @@ public class Const
     public static final String DB_PATH            = SERIALIZATION_PATH + "db.json";
     //endregion
     
+    //Flags and Tags
     public static final int NOT_FOUND   = -1;
     public static final int GREETINGS   = 1;
     public static final int HOW_ARE_YOU = 2;
@@ -106,16 +107,19 @@ public class Const
         return db;
     }
     
+    /**
+     This method will show the user the basic commands he has access to (i.e <code>/ChangeBotName</code>)
+     
+     @return The message showing the commands.
+     */
     public static String getHelpMessage ()
     {
-        StringBuilder helpMessage = new StringBuilder();
-        
-        helpMessage.append("Command Lines you can use : ").append("\n").append("/ChangeBotName:[newName]").append("\n").append(
-                "/ChangeUserName:[newName]").append("\n").append("/Exit").append("\n");
-        
-        return helpMessage.toString();
+        return "Command Lines you can use : " + "\n" + "/ChangeBotName:[newName]" + "\n" + "/ChangeUserName:[newName]" + "\n" + "/Exit" + "\n";
     }
     
+    /**
+     This enum is used to replace Tags (i.e <code>TIME_HOUR</code>) by it's actual calculated value at the time.
+     */
     public enum ReplacementCode
     {
         TIME_HOUR(new SimpleDateFormat("HH:mm").format(new Date())),
@@ -125,23 +129,26 @@ public class Const
         USER_NAME("User");
         
         private String value;
-    
+        
         ReplacementCode (String value)
         {
             this.value = value;
         }
-    
+        
         public String getValue ()
         {
             return value;
         }
-    
+        
         public void setValue (String value)
         {
             this.value = value;
         }
     }
     
+    /**
+     This enum lists the commands that the user can call.
+     */
     public enum CommandLine
     {
         ChangeBotName,
