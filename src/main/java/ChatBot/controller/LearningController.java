@@ -15,7 +15,7 @@ import static ChatBot.service.Const.writeDb;
  .
  . The LearningController	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 20/09/17 09:07
+ . Last Modified : 20/09/17 11:23
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -42,11 +42,10 @@ public class LearningController
     
     private DataBase db = readDb();
     
-    
     /**
      Initializes the controller with values found from DataBase db (private attribute).
      <br>
-     __ Warning : Reads db __
+     __ Warning : Reads db __<br>
      __ Dependency : model.Bot, service.Const __
      */
     public void initialize ()
@@ -127,8 +126,7 @@ public class LearningController
      Will add txtNewBot's value to Answers' pool if not already added.<br>
      Will add a link leading txtNewUser's value to txtNewBot's value.<br>
      <br>
-     __ Warning : Reads and Writes on db __
-     <br>
+     __ Warning : Reads and Writes on db __<br>
      __ Dependency : model.Bot __
      */
     public void btnNewPhrases_onAction ()
@@ -179,8 +177,7 @@ public class LearningController
      Event Handler of AddLinks button : Triggered on a click of that button.<br>
      Adds a link between a User's input and a Bot's answer.<br>
      <br>
-     __ Warning : Reads and Writes on db __
-     <br>
+     __ Warning : Reads and Writes on db __<br>
      __ Dependency : model.Bot __
      */
     public void btnAddLinks_onAction ()
@@ -197,8 +194,7 @@ public class LearningController
      Event Handler of AddUserPool button : Triggered on a click of that button.<br>
      Adds a new entry to User's input pool.<br>
      <br>
-     __ Warning : Reads and Writes on db __
-     <br>
+     __ Warning : Reads and Writes on db __<br>
      __ Dependency : model.Bot __
      */
     public void btnAddUserPool_onAction ()
@@ -221,8 +217,7 @@ public class LearningController
      Event Handler of AddBotPool button : Triggered on a click of that button.<br>
      Adds a new entry to Bot's answer pool.<br>
      <br>
-     __ Warning : Reads and Writes on db __
-     <br>
+     __ Warning : Reads and Writes on db __<br>
      __ Dependency : model.Bot __
      */
     public void btnAddBotPool_onAction ()
