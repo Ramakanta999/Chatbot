@@ -17,7 +17,7 @@ import static ChatBot.service.Const.readDb;
  .
  . The Bot	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 26/09/17 13:42
+ . Last Modified : 26/09/17 13:55
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -148,6 +148,8 @@ public class Bot
                     break;
                 case Help:
                     return Const.getHelpMessage();
+                default:
+                    return "Command not found";
             }
 
             return "Command executed";
