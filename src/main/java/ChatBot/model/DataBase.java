@@ -11,7 +11,7 @@ import java.util.Random;
  .
  . The DataBase	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 26/09/17 13:50
+ . Last Modified : 26/09/17 13:53
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -59,6 +59,14 @@ public class DataBase
     public String[] getBotPhrasePool (int index)
     {
         return getBotPhrasePools().get(index);
+    }
+
+    public String getBotPhrase (int poolIndex)
+    {
+        int poolSize = getBotPhrasePool(poolIndex).length;
+        int phraseIndex = new Random().nextInt(poolSize);
+
+        return getBotPhrase(poolIndex, phraseIndex);
     }
 
     public String getBotPhrase (int poolIndex, int phraseIndex)
@@ -133,14 +141,6 @@ public class DataBase
 
         //Found in this array
         return false;
-    }
-
-    public String getBotPhrase (int poolIndex)
-    {
-        int poolSize = getBotPhrasePool(poolIndex).length;
-        int phraseIndex = new Random().nextInt(poolSize);
-
-        return getBotPhrase(poolIndex, phraseIndex);
     }
 
     public void addToUserPool (String toAdd, int poolIndex)
