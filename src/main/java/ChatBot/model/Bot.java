@@ -17,14 +17,17 @@ import static ChatBot.service.Const.readDb;
  .
  . The Bot	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 22/09/17 13:46
+ . Last Modified : 26/09/17 13:42
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
 
 /**
- This Class is the ChatBot's brain.<br> The methods allow you to make the ChatBot answer or apply the commands.<br> <br> __ Warning : Reads
- db __<br> __ Dependency : model.DataBase, service.Const __
+ This Class is the ChatBot's brain.<br>
+ The methods allow you to make the ChatBot answer or apply the commands.<br>
+ <br>
+ __ Warning : Reads db __<br>
+ __ Dependency : model.DataBase, service.Const __
  */
 public class Bot
 {
